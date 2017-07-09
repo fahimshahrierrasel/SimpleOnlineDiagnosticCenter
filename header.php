@@ -60,8 +60,8 @@
                 <a class="mdl-navigation__link" href="">About Us</a>
                 <div class="android-drawer-separator"></div>
                 <span class="mdl-navigation__link">Portals</span>
-                <a class="mdl-navigation__link" href="user_login.php">Patient Portal</a>
-                <a class="mdl-navigation__link" href="stuff_portals.php">Stuff Portal</a>
+                <a class="mdl-navigation__link" href="./patient_portal/patient_login.php">Patient Portal</a>
+                <a class="mdl-navigation__link" href="stuff_portal.php">Stuff Portal</a>
             </nav>
         </div>
         <main class="mdl-layout__content">
