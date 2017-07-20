@@ -33,8 +33,18 @@
     });
 
     $('#patient_portal').click(function() {
-        location.href='login_page.html';
+        location.href='./patient_portal/patient_login.php';
     });
+    $('#admin_panel').click(function() {
+        location.href='./admin_panel/admin_login.php';
+    });
+    $('#doctor_portal').click(function() {
+        location.href='./doctor_portal/doctor_login.php';
+    });
+    $('#pathologist_portal').click(function() {
+        location.href='./pathologist_portal/pathologist_login.php';
+    });
+
 
 </script>
 </body>

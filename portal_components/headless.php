@@ -11,7 +11,7 @@
 
     <link rel="stylesheet" href="../libaries/mdui/css/mdui.css">
 
-    <link rel="stylesheet" href="../login_style.css">
+    <link rel="stylesheet" href="../styles/login_style.css">
     <script src="../libaries/mdui/js/mdui.js"></script>
     <script src="../libaries/jquery-3.2.1.js"></script>
 </head>

@@ -1,6 +1,6 @@
 <?php
-include("patient_drawer.php");
-$title="Patient Portal";
+include("admin_drawer.php");
+$title="Admin Panel"
 ?>
 
 <p>test</p>
@@ -63,9 +63,12 @@ $title="Patient Portal";
 <p>test</p>
 <p>test</p>
 <p>test</p>
+
+
 <script type="text/javascript">
     document.title = "<?=$title;?>";
     $('#dashboard_title').text("<?=$title;?>");
     $('#dashboard_file').text("Dashboard");
 </script>
+
 <?php include("../portal_components/footer.php");?>

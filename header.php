@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>UI Mock Up</title>
     <link rel="stylesheet" href="./libaries/mdui/css/mdui.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/main_style.css">
     <script src="./libaries/mdui/js/mdui.js"></script>
     <script src="./libaries/jquery-3.2.1.js"></script>
 </head>
@@ -55,9 +55,9 @@
                 <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
             </div>
             <ul class="mdui-collapse-item-body mdui-list mdui-list-dense">
-                <li class="mdui-list-item mdui-ripple">Admin Dashboard</li>
-                <li class="mdui-list-item mdui-ripple">Doctor Portal</li>
-                <li class="mdui-list-item mdui-ripple">Pathologist Portal</li>
+                <li class="mdui-list-item mdui-ripple" id="admin_panel">Admin Panel</li>
+                <li class="mdui-list-item mdui-ripple" id="doctor_portal">Doctor Portal</li>
+                <li class="mdui-list-item mdui-ripple" id="pathologist_portal">Pathologist Portal</li>
             </ul>
         </li>
 

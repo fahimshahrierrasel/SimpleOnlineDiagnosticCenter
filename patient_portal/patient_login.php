@@ -1,7 +1,13 @@
-<?php include("headless.php"); ?>
+<?php
+include("../portal_components/headless.php");
+$title = "Patient Login"
+?>
+<script type="text/javascript">
+    document.title = "<?=$title;?>"
+</script>
 <div class="mdui-card login-card" id="login_card">
     <div class="mdui-card-header mdui-color-indigo" style="height: 100px;">
-        <div class="mdui-card-primary-title">Patient Login</div>
+        <div class="mdui-card-primary-title"><?=$title;?></div>
     </div>
 
     <div class="mdui-card-content">
@@ -21,7 +27,7 @@
     </div>
     <div class="mdui-card-actions mdui-float-right">
         <button class="mdui-btn mdui-ripple" id="register_btn">Register</button>
-        <button class="mdui-btn mdui-ripple" onclick="location.href='dashboard.html'">Login</button>
+        <button class="mdui-btn mdui-ripple" onclick="location.href='dashboard.php'">Login</button>
     </div>
 </div>
 <div class="mdui-card login-card mdui-hidden" id="register_card">
@@ -63,4 +69,16 @@
 
     </div>
 </div>
-<?php include("footless.php"); ?>
+
+<script type="text/javascript">
+    $('#register_btn').click(function() {
+        $('#login_card').addClass('mdui-hidden');
+        $('#register_card').removeClass('mdui-hidden');
+    });
+    $('#return_login').click(function() {
+        $('#register_card').addClass('mdui-hidden');
+        $('#login_card').removeClass('mdui-hidden');
+    });
+</script>
+
+<?php include("../portal_components/footless.php"); ?>

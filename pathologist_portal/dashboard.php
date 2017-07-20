@@ -1,6 +1,6 @@
 <?php
-include("patient_drawer.php");
-$title="Patient Portal";
+include("./pathologist_drawer.php");
+$title="Pathologist Portal";
 ?>
 
 <p>test</p>
