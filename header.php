@@ -1,72 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Demo of Online Diagnostic Center Management System">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="./libaries/mdl/material.css">
-    <link rel="stylesheet" href="style.css">
-    <title>Online Diagnostic Center Management</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>UI Mock Up</title>
+    <link rel="stylesheet" href="./libaries/mdui/css/mdui.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="./libaries/mdui/js/mdui.js"></script>
+    <script src="./libaries/jquery-3.2.1.js"></script>
 </head>
-<body>
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-        <div class="android-header mdl-layout__header mdl-layout__header--waterfall">
-            <div class="mdl-layout__header-row">
-          <span class="android-title mdl-layout-title title-text">
-<!--            <img class="android-logo-image" src="./images/first-aid-kit.png">-->
-              Diagnostic Center
-          </span>
-                <!-- Add spacer, to align navigation to the right in desktop -->
-                <div class="android-header-spacer mdl-layout-spacer"></div>
-                <div class="android-search-box mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right mdl-textfield--full-width">
-                    <label class="mdl-button mdl-js-button mdl-button--icon" for="search-field">
-                        <i class="material-icons">search</i>
-                    </label>
-                    <div class="mdl-textfield__expandable-holder">
-                        <input class="mdl-textfield__input" type="text" id="search-field">
-                    </div>
-                </div>
-                <!-- Navigation -->
-                <div class="android-navigation-container">
-                    <nav class="android-navigation mdl-navigation">
-                        <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Find Doctors</a>
-                        <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Our Locations</a>
-                        <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Medical Services</a>
-                        <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Contact</a>
-                        <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">About Us</a>
-                    </nav>
-                </div>
-                <span class="android-mobile-title mdl-layout-title title-text">
-<!--            <img class="android-logo-image" src="./images/first-aid-kit.png">-->
-                    Diagnostic Center
-                </span>
+<body class="mdui-drawer-body-left">
+<div class="mdui-appbar mdui-appbar-fixed">
+    <div class="mdui-toolbar mdui-color-blue-grey">
+        <a href="javascript:;" class="mdui-btn mdui-btn-icon" id="menu_btn"><i class="mdui-icon material-icons">menu</i></a>
+        <a href="javascript:;" class="mdui-typo-headline">Online Diagnostic Center</a>
+        <div class="mdui-toolbar-spacer"></div>
+        <a href="javascript:;" class="mdui-btn appbar-link-text">Home</a>
+        <a href="javascript:;" class="mdui-btn appbar-link-text">Find Doctors</a>
+        <a href="javascript:;" class="mdui-btn appbar-link-text">Medical Services</a>
+        <a href="javascript:;" class="mdui-btn appbar-link-text">Contact</a>
+        <a href="javascript:;" class="mdui-btn appbar-link-text">About Us</a>
+    </div>
+</div>
+<div class="mdui-drawer mdui-drawer-full-height mdui-shadow-5" id="drawer" style="margin-top: 60px;">
+    <ul class="mdui-list" mdui-collapse="{accordion: true}">
+        <li class="mdui-list-item mdui-ripple">
+            <i class="mdui-list-item-icon mdui-icon material-icons">home</i>
+            <div class="mdui-list-item-content">Home</div>
+        </li>
+
+        <li class="mdui-list-item mdui-ripple">
+            <i class="mdui-list-item-icon mdui-icon material-icons">dashboard</i>
+            <div class="mdui-list-item-content">Dashboard</div>
+        </li>
+
+        <li class="mdui-collapse-item">
+            <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">people</i>
+                <div class="mdui-list-item-content">Services</div>
+                <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
             </div>
-        </div>
+            <ul class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                <li class="mdui-list-item mdui-ripple">Find Doctors</li>
+                <li class="mdui-list-item mdui-ripple">Medical Services</li>
+                <li class="mdui-list-item mdui-ripple">Ambulance</li>
+                <li class="mdui-list-item mdui-ripple">Disease Detection</li>
+            </ul>
+        </li>
+        <li class="mdui-collapse-item">
+            <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">device_hub</i>
+                <div class="mdui-list-item-content">Stuff Area</div>
+                <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+            </div>
+            <ul class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                <li class="mdui-list-item mdui-ripple">Admin Dashboard</li>
+                <li class="mdui-list-item mdui-ripple">Doctor Portal</li>
+                <li class="mdui-list-item mdui-ripple">Pathologist Portal</li>
+            </ul>
+        </li>
 
-        <div class="android-drawer mdl-layout__drawer">
-                  <span class="android-title mdl-layout-title title-text">
-<!--            <img class="android-logo-image" src="./images/first-aid-kit.png">-->
-              Diagnostic Center
-            </span>
-            <nav class="mdl-navigation">
-                <a class="mdl-navigation__link" href="index.php">Home</a>
-                <a class="mdl-navigation__link" href="">Find Doctors</a>
-                <a class="mdl-navigation__link" href="">Our Locations</a>
-                <a class="mdl-navigation__link" href="">Medical Services</a>
-                <a class="mdl-navigation__link" href="">Contact</a>
-                <a class="mdl-navigation__link" href="">About Us</a>
-                <div class="android-drawer-separator"></div>
-                <span class="mdl-navigation__link">Portals</span>
-                <a class="mdl-navigation__link" href="./patient_portal/patient_login.php">Patient Portal</a>
-                <a class="mdl-navigation__link" href="stuff_portal.php">Stuff Portal</a>
-            </nav>
-        </div>
-        <main class="mdl-layout__content">
-            <div class="page-content">
+        <li class="mdui-collapse-item">
+            <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">touch_app</i>
+                <div class="mdui-list-item-content">Patient</div>
+                <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+            </div>
+            <ul class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                <li class="mdui-list-item mdui-ripple" id="patient_portal">Portal</li>
+                <li class="mdui-list-item mdui-ripple">Check Report Status</li>
+            </ul>
+        </li>
+    </ul>
+</div>
 
-
-
-
+<div class="mdui-container-fluid">

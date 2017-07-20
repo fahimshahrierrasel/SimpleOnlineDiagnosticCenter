@@ -1,0 +1,9 @@
+.login-card{
+    width: 500px;
+    margin:  0 auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+body{
+    background-image: url('https://source.unsplash.com/random');
+}
