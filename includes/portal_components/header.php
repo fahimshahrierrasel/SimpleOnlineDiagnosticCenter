@@ -9,11 +9,11 @@
 
     <title>User Portal</title>
 
-    <link rel="stylesheet" href="../libaries/mdui/css/mdui.css">
+    <link rel="stylesheet" href="../../libaries/mdui/css/mdui.css">
 
-    <link rel="stylesheet" href="../styles/dashboard_styles.css">
-    <script src="../libaries/mdui/js/mdui.js"></script>
-    <script src="../libaries/jquery-3.2.1.js"></script>
+    <link rel="stylesheet" href="../../styles/dashboard_styles.css">
+    <script src="../../libaries/mdui/js/mdui.js"></script>
+    <script src="../../libaries/jquery-3.2.1.js"></script>
 </head>
 <body class="mdui-appbar-with-toolbar mdui-drawer-body-left">
 <div class="mdui-appbar mdui-appbar-fixed">
@@ -44,7 +44,7 @@
 
             <div class="mdui-list-item-content" style="min-height: 150px;">
                 <div>
-                    <img class="circular--square" style="width: 100px;" src="../images/avatar.png" alt="" />
+                    <img class="circular--square" style="width: 100px;" src="../../images/avatar.png" alt="" />
                     <br>
                     <h3 class="mdui-float-left">Username</h3>
                 </div>

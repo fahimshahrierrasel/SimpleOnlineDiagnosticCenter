@@ -1,4 +1,4 @@
-<?php include("../portal_components/header.php");?>
+<?php include("../includes/portal_components/header.php");?>
 
 
         <li class="mdui-list-item mdui-ripple"><i class="mdui-list-item-icon mdui-icon material-icons">move_to_inbox</i>

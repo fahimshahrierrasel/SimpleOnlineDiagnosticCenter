@@ -68,4 +68,4 @@ $title="Patient Portal";
     $('#dashboard_title').text("<?=$title;?>");
     $('#dashboard_file').text("Dashboard");
 </script>
-<?php include("../portal_components/footer.php");?>
+<?php include("../includes/portal_components/footer.php");?>

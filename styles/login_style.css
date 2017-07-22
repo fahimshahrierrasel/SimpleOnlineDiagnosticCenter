@@ -1,9 +1,14 @@
+body{
+    height: auto;
+    background-image: url('../images/login_background.jpg');
+    background-size: cover;
+}
 .login-card{
     width: 500px;
     margin:  0 auto;
     margin-top: 100px;
     margin-bottom: 100px;
 }
-body{
-    background-image: url('https://source.unsplash.com/random');
+.login-register-button{
+    margin-bottom: 5px;
 }

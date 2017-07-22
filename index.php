@@ -1,4 +1,4 @@
-<?php include("header.php"); ?>
+<?php include("./includes/components/header.php"); ?>
 <p>test</p>
 <p>test</p>
 <p>test</p>
@@ -60,4 +60,4 @@
 <p>test</p>
 <p>test</p>
 
-<?php include("footer.php"); ?>
+<?php include("./includes/components/footer.php"); ?>

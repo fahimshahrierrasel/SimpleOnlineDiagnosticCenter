@@ -1,5 +1,5 @@
 <?php
-    include("header.php");
+    include("./components/header.php");
     $title = "Stuff Portals"
 ?>
 <script type="text/javascript">
@@ -59,4 +59,4 @@
 
 
 
-<?php include("footer.php"); ?>
+<?php include("./components/footer.php"); ?>

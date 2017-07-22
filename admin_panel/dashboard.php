@@ -71,4 +71,4 @@ $title="Admin Panel"
     $('#dashboard_file').text("Dashboard");
 </script>
 
-<?php include("../portal_components/footer.php");?>
+<?php include("../includes/portal_components/footer.php");?>

@@ -1,5 +1,5 @@
 <?php
-include("../portal_components/headless.php");
+include("../includes/portal_components/headless.php");
 $title = "Admin Login"
 ?>
 <script type="text/javascript">
@@ -29,4 +29,4 @@ $title = "Admin Login"
         <button class="mdui-btn mdui-ripple" onclick="location.href='dashboard.php'">Login</button>
     </div>
 </div>
-<?php include("../portal_components/footless.php"); ?>
+<?php include("../includes/portal_components/footless.php"); ?>
