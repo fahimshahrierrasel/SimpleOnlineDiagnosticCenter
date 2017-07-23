@@ -1,6 +1,7 @@
 <?php
-include("patient_drawer.php");
+include ("patient_drawer.php");
 $title="Patient Portal";
+
 ?>
 
 <p>test</p>

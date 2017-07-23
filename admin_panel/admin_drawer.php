@@ -1,6 +1,17 @@
 <?php include("../includes/portal_components/header.php");?>
 
+<div class="mdui-drawer mdui-shadow-5" id="drawer">
+    <ul class="mdui-list">
+        <li class="mdui-list-item">
 
+            <div class="mdui-list-item-content" style="min-height: 150px;">
+                <div>
+                    <img class="circular--square" style="width: 100px;" src="../../images/avatar.png" alt="" />
+                    <br>
+                    <h3 class="mdui-float-left">Username</h3>
+                </div>
+            </div>
+        </li>
         <li class="mdui-list-item mdui-ripple"><i class="mdui-list-item-icon mdui-icon material-icons">move_to_inbox</i>
 
             <div class="mdui-list-item-content">Inbox</div>

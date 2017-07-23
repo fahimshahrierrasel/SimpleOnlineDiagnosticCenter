@@ -7,13 +7,6 @@
  */
 include 'dbconfigurations/connection.php';
 
-function createUserSession($user){
-    session_regenerate_id();
-    $_SESSION['user_id'] = $user['idUser'];
-    $_SESSION['username'] = $user['username'];
-    $_SESSION['last_login'] = time();
-    return true;
-}
 function insertNewUser($user){
     global $dbConnection;
     try{

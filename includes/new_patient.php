@@ -6,7 +6,7 @@
  * Time: 7:53 PM
  */
 
-include "functions.php";
+include "dbFunctions.php";
 
 $user['fname'] = $_POST['fname'];
 $user['sex'] = $_POST['sex'];

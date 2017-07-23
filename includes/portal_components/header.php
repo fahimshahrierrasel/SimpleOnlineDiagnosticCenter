@@ -31,22 +31,9 @@
             </li>
             <li class="mdui-divider"></li>
             <li class="mdui-menu-item">
-                <a href="javascript:;" class="mdui-ripple">Sign out</a>
+                <a href="/includes/logout.php" class="mdui-ripple">Sign out</a>
             </li>
         </ul>
     </div>
 
 </div>
-
-<div class="mdui-drawer mdui-shadow-5" id="drawer">
-    <ul class="mdui-list">
-        <li class="mdui-list-item">
-
-            <div class="mdui-list-item-content" style="min-height: 150px;">
-                <div>
-                    <img class="circular--square" style="width: 100px;" src="../../images/avatar.png" alt="" />
-                    <br>
-                    <h3 class="mdui-float-left">Username</h3>
-                </div>
-            </div>
-        </li>
