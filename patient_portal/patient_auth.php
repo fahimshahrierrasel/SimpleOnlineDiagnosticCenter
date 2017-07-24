@@ -6,8 +6,8 @@
  * Time: 6:26 PM
  */
 
-include 'dbFunctions.php';
-include 'auth_functions.php';
+include '../includes/dbFunctions.php';
+include '../includes/auth_functions.php';
 
 $user['username'] = $_POST['username'];
 $user['password'] = $_POST['password'];
@@ -24,11 +24,11 @@ if($fetchedUser){
         }
     }else{
         //header('Location: /patient_portal/patient_login.php');
-        echo "<h1>Password<br /><a href='../patient_portal/patient_login.php'>Login Now</a> </h1>";
+        echo "<h1>Password<br /><a href='patient_login.php'>Login Now</a> </h1>";
     }
 }else{
     //header('Location: /patient_portal/patient_login.php');
-    echo "<h1>No User<br /><a href='../patient_portal/patient_login.php'>Login Now</a> </h1>";
+    echo "<h1>No User<br /><a href='patient_login.php'>Login Now</a> </h1>";
 }
 
 ?>

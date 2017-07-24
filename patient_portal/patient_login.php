@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     </div>
 
     <div class="mdui-card-content">
-        <form method="post" action="../includes/patient_auth.php" id="login_form">
+        <form method="post" action="patient_auth.php" id="login_form">
             <div class="mdui-textfield mdui-textfield-floating-label">
                 <label class="mdui-textfield-label">Username</label>
 
@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     </div>
 
     <div class="mdui-card-content">
-        <form method="post" action="../includes/new_patient.php" id="register_form">
+        <form method="post" action="new_patient.php" id="register_form">
             <div class="mdui-textfield">
                 <input class="mdui-textfield-input" type="text" name="fname" data-validation="custom" data-validation-regexp="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$" data-validation-error-msg="Enter your full name!" placeholder="Your Full Name" />
             </div>

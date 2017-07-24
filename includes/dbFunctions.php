@@ -75,4 +75,20 @@ function findUserByUsername($user){
     }
 }
 
+function findUserById($id){
+    global $dbConnection;
+    try{
+        $idSql = 'SELECT * FROM DiagnosticCenter.User WHERE idUser = ? LIMIT 1';
+        $idPrepareStmt = $dbConnection->prepare($idSql);
+        $idPrepareStmt->bindValue(1, $id, PDO::PARAM_INT);
+        $idPrepareStmt->execute();
+        $fetchedUser = $idPrepareStmt->fetchAll();
+        return $fetchedUser[0];
+
+    }catch (Exception $exception){
+        echo "Error!: " . $exception->getMessage();
+        return null;
+    }
+}
+
 ?>

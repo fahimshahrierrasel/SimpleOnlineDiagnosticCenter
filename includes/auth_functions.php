@@ -10,13 +10,11 @@
 function createUserSession($user){
     session_start();
     session_regenerate_id();
-
     $_SESSION['user_id'] = $user[0];
     $_SESSION['username'] = $user[1];
     $_SESSION['last_login'] = time();
     return true;
 }
-
 
 function removeUserSession(){
     session_start();
