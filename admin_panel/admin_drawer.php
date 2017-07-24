@@ -1,4 +1,17 @@
-<?php include("../includes/portal_components/header.php");?>
+<?php
+include "../includes/auth_functions.php";
+include "../includes/dbFunctions.php";
+session_start();
+
+if(!isset($_SESSION['user_id'])) {
+    header("Location: /admin_panel/admin_login.php");
+    exit();
+} else {}
+
+include "../includes/portal_components/header.php";
+$tempUser['username'] = $_SESSION['username'];
+$user = findUserByUsername($tempUser);
+?>
 
 <div class="mdui-drawer mdui-shadow-5" id="drawer">
     <ul class="mdui-list">
@@ -8,7 +21,7 @@
                 <div>
                     <img class="circular--square" style="width: 100px;" src="../../images/avatar.png" alt="" />
                     <br>
-                    <h3 class="mdui-float-left">Username</h3>
+                    <h3 class="mdui-float-left"><?php echo $_SESSION['username'] ?></h3>
                 </div>
             </div>
         </li>

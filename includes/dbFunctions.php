@@ -43,6 +43,25 @@ function insertNewPatient($user, $fetchedUser){
 
 }
 
+function insertNewAdmin($user, $fetchedUser){
+    global $dbConnection;
+
+    try{
+        $patientSql = 'INSERT INTO DiagnosticCenter.Admin(Name, Department, User_idUser) VALUE (?, ?, ?)';
+        $patientPrepareStmt = $dbConnection->prepare($patientSql);
+        $patientPrepareStmt->bindValue(1, $user['fname'], PDO::PARAM_STR);
+        $patientPrepareStmt->bindValue(2, "HR", PDO::PARAM_STR);
+        $patientPrepareStmt->bindValue(3, $fetchedUser['idUser'], PDO::PARAM_INT);
+        $patientPrepareStmt->execute();
+        return true;
+
+    }catch (Exception $exception){
+        echo "Error!: " . $exception->getMessage();
+        return false;
+    }
+
+}
+
 function findUserByUsernameAndEmail($user){
     global $dbConnection;
     try{
