@@ -3,13 +3,20 @@ include "../includes/auth_functions.php";
 include "../includes/dbFunctions.php";
 session_start();
 
-if(!isset($_SESSION['user_id'])) {
+
+if(isLoggedIn()) {
+    if($_SESSION['user_type'] != "Admin"){
+        header("Location: /admin_panel/admin_login.php");
+        exit();
+    }
+} else {
     header("Location: /admin_panel/admin_login.php");
     exit();
-} else {}
+}
 
 include "../includes/portal_components/header.php";
 $tempUser['username'] = $_SESSION['username'];
+$tempUser['user_type'] = 'Admin';
 $user = findUserByUsername($tempUser);
 ?>
 
@@ -19,9 +26,9 @@ $user = findUserByUsername($tempUser);
 
             <div class="mdui-list-item-content" style="min-height: 150px;">
                 <div>
-                    <img class="circular--square" style="width: 100px;" src="../../images/avatar.png" alt="" />
+                    <?php echo'<img class="circular--square" style="width: 100px;" src="data:image/jpeg;base64,'.base64_encode( $user['mage'] ).'" alt="Image not found" onerror="this.onerror=null;this.src=\'../images/avatar.png\';" />'?>
                     <br>
-                    <h3 class="mdui-float-left"><?php echo $_SESSION['username'] ?></h3>
+                    <h3 class="mdui-float-left"><?php echo $user['UserName'] ?></h3>
                 </div>
             </div>
         </li>
@@ -31,7 +38,7 @@ $user = findUserByUsername($tempUser);
         </li>
         <li class="mdui-list-item mdui-ripple"><i class="mdui-list-item-icon mdui-icon material-icons">star</i>
 
-            <div class="mdui-list-item-content">Starred</div>
+            <div class="mdui-list-item-content" onclick="window.location.href='doctors.php'">Doctors</div>
         </li>
         <li class="mdui-list-item mdui-ripple"><i class="mdui-list-item-icon mdui-icon material-icons">send</i>
 

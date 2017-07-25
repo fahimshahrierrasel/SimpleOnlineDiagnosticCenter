@@ -3,13 +3,19 @@ include "../includes/auth_functions.php";
 include "../includes/dbFunctions.php";
 session_start();
 
-if(!isset($_SESSION['user_id'])) {
+if(isLoggedIn()) {
+    if($_SESSION['user_type'] != "Patient"){
+        header("Location: /patient_portal/patient_login.php");
+        exit();
+    }
+} else {
     header("Location: /patient_portal/patient_login.php");
     exit();
-} else {}
+}
 
 include "../includes/portal_components/header.php";
 $tempUser['username'] = $_SESSION['username'];
+$tempUser['user_type'] = 'Patient';
 $user = findUserByUsername($tempUser);
 ?>
 

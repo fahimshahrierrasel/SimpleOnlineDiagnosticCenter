@@ -11,6 +11,7 @@ include '../includes/auth_functions.php';
 
 $user['username'] = $_POST['username'];
 $user['password'] = $_POST['password'];
+$user['user_type'] = 'Patient';
 
 $fetchedUser = findUserByUsername($user);
 $loginErrorMsg = 'Log in was unsuccessful!';

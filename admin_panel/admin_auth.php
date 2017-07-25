@@ -10,6 +10,7 @@ include '../includes/auth_functions.php';
 
 $user['username'] = $_POST['username'];
 $user['password'] = $_POST['password'];
+$user['user_type'] = 'Admin';
 
 $fetchedUser = findUserByUsername($user);
 $loginErrorMsg = 'Log in was unsuccessful!';

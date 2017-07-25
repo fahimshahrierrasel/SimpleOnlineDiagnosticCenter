@@ -11,6 +11,7 @@ $user['fname'] = $_POST['fname'];
 $user['username'] = $_POST['username'];
 $user['email'] = $_POST['email'];
 $user['password'] = $_POST['rpassword'];
+$user['user_type'] = 'Admin';
 $verificationCode= $_POST['verify_code'];
 
 if(insertNewUser($user)){

@@ -13,7 +13,7 @@ $user['sex'] = $_POST['sex'];
 $user['username'] = $_POST['username'];
 $user['email'] = $_POST['email'];
 $user['password'] = $_POST['rpassword'];
-
+$user['user_type'] = 'Patient';
 if(insertNewUser($user)){
     $fetchedUser = findUserByUsernameAndEmail($user);
     if(insertNewPatient($user, $fetchedUser)){
@@ -24,3 +24,4 @@ if(insertNewUser($user)){
 }else{
     echo "<h1>Registration Failed!<br /><a href='patient_login.php'>Register Again</a> </h1>";
 }
+?>
