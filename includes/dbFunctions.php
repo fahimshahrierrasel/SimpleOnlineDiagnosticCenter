@@ -84,6 +84,27 @@ function insertNewDoctor($user, $fetchedUser){
 
 }
 
+function insertNewPathologist($user, $fetchedUser){
+    global $dbConnection;
+
+    try{
+        $pathologistSql = 'INSERT INTO DiagnosticCenter.Pathologist(Name, Department, Speciality, User_idUser) VALUE (?, ?, ?, ?)';
+        $pathologistPrepareStmt = $dbConnection->prepare($pathologistSql);
+        $pathologistPrepareStmt->bindValue(1, $user['fname'], PDO::PARAM_STR);
+        $pathologistPrepareStmt->bindValue(2, $user['department'], PDO::PARAM_STR);
+        $pathologistPrepareStmt->bindValue(3, $user['speciality'], PDO::PARAM_STR);
+        $pathologistPrepareStmt->bindValue(4, $fetchedUser['idUser'], PDO::PARAM_INT);
+        $pathologistPrepareStmt->execute();
+        return true;
+
+    }catch (Exception $exception){
+        echo "Error!: " . $exception->getMessage();
+        return false;
+    }
+
+}
+
+
 function findUserByUsernameAndEmail($user){
     global $dbConnection;
     try{
@@ -142,6 +163,21 @@ function getAllDoctors(){
         $doctorPrepareStmt->execute();
         $fetchedDoctor = $doctorPrepareStmt->fetchAll();
         return $fetchedDoctor;
+
+    }catch (Exception $exception){
+        echo "Error!: " . $exception->getMessage();
+        return null;
+    }
+}
+
+function getAllPathologist(){
+    global $dbConnection;
+    try{
+        $pathologistSql = 'SELECT * FROM DiagnosticCenter.Pathologist';
+        $pathologistPrepareStmt = $dbConnection->prepare($pathologistSql);
+        $pathologistPrepareStmt->execute();
+        $fetchedPathologist = $pathologistPrepareStmt->fetchAll();
+        return $fetchedPathologist;
 
     }catch (Exception $exception){
         echo "Error!: " . $exception->getMessage();

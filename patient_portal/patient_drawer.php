@@ -25,7 +25,7 @@ $user = findUserByUsername($tempUser);
 
             <div class="mdui-list-item-content" style="min-height: 150px;">
                 <div>
-                    <?php echo'<img class="circular--square" style="width: 100px;" src="data:image/jpeg;base64,'.base64_encode( $user['mage'] ).'" alt="Image not found" onerror="this.onerror=null;this.src=\'../images/avatar.png\';" />'?>
+                    <?php echo'<img class="circular--square" style="width: 100px;" src="data:image/jpeg;base64,'.base64_encode( $user['Image'] ).'" alt="Image not found" onerror="this.onerror=null;this.src=\'../images/users.png\';" />'?>
                     <br>
                     <h3 class="mdui-float-left"><?php echo $_SESSION['username'] ?></h3>
                 </div>

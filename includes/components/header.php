@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Online Diagnostic Center</title>
-    <link rel="stylesheet" href="../libaries/mdui/css/mdui.css">
-    <link rel="stylesheet" href="../styles/main_style.css">
-    <script src="../libaries/mdui/js/mdui.js"></script>
-    <script src="../libaries/jquery-3.2.1.js"></script>
+    <link rel="stylesheet" href="../../libaries/mdui/css/mdui.css">
+    <link rel="stylesheet" href="../../styles/main_style.css">
+    <script src="../../libaries/mdui/js/mdui.js"></script>
+    <script src="../../libaries/jquery-3.2.1.js"></script>
 </head>
 <body class="mdui-drawer-body-left">
 <div class="mdui-appbar mdui-appbar-fixed">
@@ -23,7 +23,7 @@
         <a href="javascript:;" class="mdui-btn appbar-link-text">About Us</a>
     </div>
 </div>
-<div class="mdui-drawer mdui-drawer-full-height mdui-shadow-5" id="drawer" style="margin-top: 60px;">
+<div class="mdui-drawer mdui-drawer-full-height mdui-shadow-5" id="drawer" style="margin-top: 64px;">
     <ul class="mdui-list" mdui-collapse="{accordion: true}">
         <li class="mdui-list-item mdui-ripple">
             <i class="mdui-list-item-icon mdui-icon material-icons">home</i>

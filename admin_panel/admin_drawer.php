@@ -26,7 +26,7 @@ $user = findUserByUsername($tempUser);
 
             <div class="mdui-list-item-content" style="min-height: 150px;">
                 <div>
-                    <?php echo'<img class="circular--square" style="width: 100px;" src="data:image/jpeg;base64,'.base64_encode( $user['mage'] ).'" alt="Image not found" onerror="this.onerror=null;this.src=\'../images/avatar.png\';" />'?>
+                    <?php echo'<img class="circular--square" style="width: 100px;" src="data:image/jpeg;base64,'.base64_encode( $user['Image'] ).'" alt="Image not found" onerror="this.onerror=null;this.src=\'../images/admin.png\';" />'?>
                     <br>
                     <h3 class="mdui-float-left"><?php echo $user['UserName'] ?></h3>
                 </div>
@@ -42,7 +42,7 @@ $user = findUserByUsername($tempUser);
         </li>
         <li class="mdui-list-item mdui-ripple"><i class="mdui-list-item-icon mdui-icon material-icons">send</i>
 
-            <div class="mdui-list-item-content">Sent mail</div>
+            <div class="mdui-list-item-content" onclick="window.location.href='pathologists.php'">Pathologist</div>
         </li>
         <li class="mdui-list-item mdui-ripple"><i class="mdui-list-item-icon mdui-icon material-icons">drafts</i>
 

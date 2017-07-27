@@ -2,21 +2,22 @@
 /**
  * Created by PhpStorm.
  * User: fahim
- * Date: 7/24/17
- * Time: 11:15 PM
+ * Date: 7/26/17
+ * Time: 9:34 PM
  */
+
 include("admin_drawer.php");
 $title="Admin Panel";
 
-$fetchedDoctors = getAllDoctors();
+$fetchedPathologist = getAllPathologist();
 
 ?>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
 
 
 <div class="mdui-m-a-5 mdui-clearfix">
-    <button class="mdui-btn mdui-ripple mdui-color-theme-accent mdui-text-capitalize mdui-float-left mdui-color-green" mdui-dialog="{target: '#doctorRegistrationDialog'}">Register a Doctor</button>
-    <button class="mdui-btn mdui-ripple mdui-color-theme-accent mdui-text-capitalize mdui-float-right mdui-color-red" mdui-dialog="{target: '#doctorDeleteDialog'}">Delete a Doctor</button>
+    <button class="mdui-btn mdui-ripple mdui-color-theme-accent mdui-text-capitalize mdui-float-left mdui-color-green" mdui-dialog="{target: '#doctorRegistrationDialog'}">Register a Pathologist</button>
+    <button class="mdui-btn mdui-ripple mdui-color-theme-accent mdui-text-capitalize mdui-float-right mdui-color-red" mdui-dialog="{target: '#doctorDeleteDialog'}">Delete a Pathologist</button>
 </div>
 
 <div class="mdui-valign">
@@ -26,22 +27,21 @@ $fetchedDoctors = getAllDoctors();
 
 <div class=" mdui-m-a-1 mdui-row">
     <?php
-        foreach ($fetchedDoctors as $doctor){
-            echo "<div class=\"mdui-col-xs-6 mdui-col-sm-4\" >
+    foreach ($fetchedPathologist as $pathologist){
+        echo "<div class=\"mdui-col-xs-6 mdui-col-sm-4\" >
                         <div class=\"mdui-card mdui-m-a-1\">
                             <div class=\"mdui-card-media\" >
                               
-                                <img src=\"../images/doctor.png\"/>
+                                <img src=\"../images/nurse.png\"/>
                             </div>
                             <div class=\"mdui-card-primary\" style=\"min-height: 90px !important; max-height: 120px !important;\">
-                              <div class=\"mdui-text-capitalize\" >".$doctor['Name']."</div>
-                              <div class=\"mdui-card-primary-subtitle\">".$doctor['Degree']."</div>
-                              <div class=\"mdui-card-primary-subtitle\">".$doctor['Specialty']."</div>
-                              <div class=\"mdui-card-primary-subtitle\">".$doctor['Department']."</div>
+                              <div class=\"mdui-text-capitalize\" >".$pathologist['Name']."</div>
+                              <div class=\"mdui-card-primary-subtitle\">".$pathologist['Department']."</div>
+                              <div class=\"mdui-card-primary-subtitle\">".$pathologist['Speciality']."</div>
                             </div>
                         </div>
                   </div>";
-        }
+    }
     ?>
 </div>
 
@@ -66,15 +66,15 @@ $fetchedDoctors = getAllDoctors();
 
 
 <div class="mdui-dialog mdui-color-yellow-100" id="doctorDeleteDialog">
-    <div class="mdui-dialog-title">Delete Doctor</div>
+    <div class="mdui-dialog-title">Delete Pathologist</div>
     <div class="mdui-dialog-content">
         <form method="post" action="#" id="register_form">
             <div class="mdui-textfield mdui-textfield-floating-label">
-                <label class="mdui-textfield-label">Select Doctor</label>
+                <label class="mdui-textfield-label">Select Pathologist</label>
                 <select class="mdui-textfield-input" name="del_doctor_id">
                     <?php
-                    foreach ($fetchedDoctors as $doctor){
-                        echo "<option value=\"".$doctor['idDoctor']."\">".$doctor['Name']."(".$doctor['Department'].")</option>";
+                    foreach ($fetchedPathologist as $pathologist){
+                        echo "<option value=\"".$pathologist['idPathologist']."\">".$pathologist['Name']."(".$pathologist['Department'].")</option>";
                     }
                     ?>
                 </select>
@@ -86,47 +86,43 @@ $fetchedDoctors = getAllDoctors();
 
 
 <div class="mdui-dialog mdui-color-lime-100" id="doctorRegistrationDialog">
-    <div class="mdui-dialog-title">Register Doctor</div>
+    <div class="mdui-dialog-title">Register Pathologist</div>
     <div class="mdui-dialog-content">
-        <form method="post" action="new_doctor.php" id="register_form">
+        <form method="post" action="new_pathologist.php" id="register_form">
             <div class="mdui-textfield">
                 <input class="mdui-textfield-input mdui-text-capitalize" type="text" name="fname" data-validation="custom" data-validation-regexp="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$" data-validation-error-msg="Enter your full name!" placeholder="Your Full Name" />
             </div>
             <div class="mdui-textfield mdui-textfield-floating-label">
                 <label class="mdui-textfield-label">Department</label>
                 <select class="mdui-textfield-input" name="department">
-                    <option value="Pediatric and Neonatology">Pediatric and Neonatology</option>
-                    <option value="Cancer Specialist">Cancer Specialist</option>
-                    <option value="Cardiology">Cardiology</option>
-                    <option value="Dental Surgeon">Dental Surgeon</option>
-                    <option value="Dermatologist">Dermatologist</option>
-                    <option value="Diabetes, Thyroid and Hormone Specialist">Diabetes, Thyroid and Hormone Specialist</option>
-                    <option value="ENT(Ear,Nose and Throat)">ENT(Ear,Nose and Throat)</option>
-                    <option value="Family physician and medical co-ordinator">Family physician and medical co-ordinator</option>
-                    <option value="Gastroenterology">Gastroenterology</option>
-                    <option value="Gynecology and Obstetrics">Gynecology and Obstetrics</option>
-                    <option value="Interventional Cardiology">Interventional Cardiology</option>
-                    <option value="Kidney, Ureter, Bladder, Prostate and Andrology Specialist Surgeon">Kidney, Ureter, Bladder, Prostate and Andrology Specialist Surgeon</option>
-                    <option value="Laparoscopic and Colorectal Surgery">Laparoscopic and Colorectal Surgery</option>
-                    <option value="Medicine">Medicine</option>
-                    <option value="Medicine and Chest Specialist">Medicine and Chest Specialist</option>
-                    <option value="Medicine and Kindey Specialist">Medicine and Kindey Specialist</option>
-                    <option value="Medicine and Diabetologist">Medicine and Diabetologist</option>
-                    <option value="Neuromedicine">Neuromedicine</option>
-                    <option value="Neurosurgery">Neurosurgery</option>
-                    <option value="Ophthalmology">Ophthalmology</option>
-                    <option value="Orthopedic Surgeon">Orthopedic Surgeon</option>
-                    <option value="Plastic Surgery">Plastic Surgery</option>
-                    <option value="Psychiatry">Psychiatry</option>
-                    <option value="Pulmonology">Pulmonology</option>
+                    <option value="Bio-Chemistry">Bio-Chemistry</option>
+                    <option value="Bone Densitometre">Bone Densitometre</option>
+                    <option value="Broncoscopy">Broncoscopy</option>
+                    <option value="Cardiac Test">Cardiac Test</option>
+                    <option value="Clinical Pathology">Clinical Pathology</option>
+                    <option value="Colonoscopy">Colonoscopy</option>
+                    <option value="CT Scan">CT Scan</option>
+                    <option value="Cyto-Pathology">Cyto-Pathology</option>
+                    <option value="Dermatology">Dermatology</option>
+                    <option value="Dialysis">Dialysis</option>
+                    <option value="ENT">ENT</option>
+                    <option value="Histopathology">Histopathology</option>
+                    <option value="Immunology">Immunology</option>
+                    <option value="Micro-Biology">Micro-Biology</option>
+                    <option value="MRI">MRI</option>
+                    <option value="Neurodiagnosis">Neurodiagnosis</option>
+                    <option value="Nuclear Medicine">Nuclear Medicine</option>
+                    <option value="PCR Lab">PCR Lab</option>
+                    <option value="Serology">Serology</option>
+                    <option value="Uroflowmetry">Uroflowmetry</option>
+                    <option value="USG">USG</option>
+                    <option value="Vaccination Center">Vaccination Center</option>
+                    <option value="Video Endoscopy">Video Endoscopy</option>
+                    <option value="X-Ray">X-Ray</option>
                 </select>
             </div>
             <div class="mdui-textfield">
-                <input class="mdui-textfield-input" type="text" name="specialty"  placeholder="Specialty" />
-            </div>
-            <div class="mdui-textfield">
-                <label class="mdui-textfield-label">Degree</label>
-                <textarea class="mdui-textfield-input" name="degree"></textarea>
+                <input class="mdui-textfield-input" type="text" name="speciality"  placeholder="Speciality" />
             </div>
             <div class="mdui-textfield">
                 <input class="mdui-textfield-input" type="text" name="username" data-validation="custom" data-validation-regexp="^[a-zA-Z0-9]+(?:[_ -]?[a-zA-Z0-9])*$" data-validation-error-msg="Enter your username!" placeholder="Username" />
