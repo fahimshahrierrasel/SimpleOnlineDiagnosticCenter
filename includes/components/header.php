@@ -10,7 +10,7 @@
     <script src="../../libaries/mdui/js/mdui.js"></script>
     <script src="../../libaries/jquery-3.2.1.js"></script>
 </head>
-<body class="mdui-drawer-body-left">
+<body class="mdui-drawer-body-left" style="width: 100%">
 <div class="mdui-appbar mdui-appbar-fixed">
     <div class="mdui-toolbar mdui-color-blue-grey">
         <a href="javascript:;" class="mdui-btn mdui-btn-icon" id="menu_btn"><i class="mdui-icon material-icons">menu</i></a>
@@ -23,8 +23,12 @@
         <a href="javascript:;" class="mdui-btn appbar-link-text">About Us</a>
     </div>
 </div>
-<div class="mdui-drawer mdui-drawer-full-height mdui-shadow-5" id="drawer" style="margin-top: 64px;">
+<div class="mdui-drawer mdui-drawer-full-height mdui-shadow-5 mdui-color-white" id="drawer" style="margin-top: 64px;">
     <ul class="mdui-list" mdui-collapse="{accordion: true}">
+        <li class="mdui-text-center" style="height: 200px;">
+            <img src="../../images/medicine.png" style="height: 150px; margin: 0 auto"/>
+            <div class="mdui-typo-subheading-opacity">Online Diagnostic Center</div>
+        </li>
         <li class="mdui-list-item mdui-ripple">
             <i class="mdui-list-item-icon mdui-icon material-icons">home</i>
             <div class="mdui-list-item-content">Home</div>
@@ -75,4 +79,4 @@
     </ul>
 </div>
 
-<div class="mdui-container-fluid">
+<div class="mdui-container-fluid" style="width: 100%">

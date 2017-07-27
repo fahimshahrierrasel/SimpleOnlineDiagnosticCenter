@@ -1,8 +1,60 @@
-body{
-    background-color: #FBDA61;
-    background-image: linear-gradient(45deg, #FBDA61 0%, #FF5ACD 100%);
+@import url(http://weloveiconfonts.com/api/?family=zocial);
+
+/* zocial */
+[class*="zocial-"]:before {
+    font-family: 'zocial', sans-serif;
+}
+/*body{*/
+    /*background-color: #FBDA61;*/
+    /*background-image: linear-gradient(45deg, #FBDA61 0%, #FF5ACD 100%);*/
+/*}*/
+
+.header-part{
+    background-image: url("https://www.google.com/wallet/static/images/pages/home/sections/hero/hero-bg-1024.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    display: inline-block;
+    width: 100%;
+    margin-top: 63px;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+}
+.arrowdown-btn{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 15px;
 }
 
+.header-part-btn{
+    width: 220px;
+    height: 50px;
+    margin: 8px;
+}
 .appbar-link-text{
     text-transform: none;
+}
+
+.appointment-div{
+    background-image: url("http://www.aberfoyle-buchlyviesurgeries.co.uk/website/V25629/files/appointment_1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    height: 300px;
+}
+.test-div{
+    background-image: url("http://www.penrhynbayanddeganwysurgeries.co.uk/website/W94018/files/test_vials2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    height: 300px;
+}
+.reports-div{
+    background-image: url("http://2.citynews-triesteprima.stgy.ovh/~media/original-hi/48873656636915/referto-medico-2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    height: 300px;
 }
