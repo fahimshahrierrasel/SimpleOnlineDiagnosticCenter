@@ -40,6 +40,9 @@
     $('#pathologist_portal').click(function() {
         location.href='../../pathologist_portal/pathologist_login.php';
     });
+    $('#find_doctor').click(function() {
+        location.href='../../find_doctors.php';
+    });
 </script>
 </body>
 </html>

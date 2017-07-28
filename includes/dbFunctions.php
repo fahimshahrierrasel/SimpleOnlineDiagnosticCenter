@@ -104,7 +104,6 @@ function insertNewPathologist($user, $fetchedUser){
 
 }
 
-
 function findUserByUsernameAndEmail($user){
     global $dbConnection;
     try{
@@ -160,6 +159,22 @@ function getAllDoctors(){
     try{
         $doctorSql = 'SELECT * FROM DiagnosticCenter.Doctor';
         $doctorPrepareStmt = $dbConnection->prepare($doctorSql);
+        $doctorPrepareStmt->execute();
+        $fetchedDoctor = $doctorPrepareStmt->fetchAll();
+        return $fetchedDoctor;
+
+    }catch (Exception $exception){
+        echo "Error!: " . $exception->getMessage();
+        return null;
+    }
+}
+
+function getAllDoctorsByDepartment($deparment){
+    global $dbConnection;
+    try{
+        $doctorSql = 'SELECT * FROM DiagnosticCenter.Doctor WHERE Department = ?';
+        $doctorPrepareStmt = $dbConnection->prepare($doctorSql);
+        $doctorPrepareStmt->bindValue(1,$deparment, PDO::PARAM_STR);
         $doctorPrepareStmt->execute();
         $fetchedDoctor = $doctorPrepareStmt->fetchAll();
         return $fetchedDoctor;

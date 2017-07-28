@@ -14,10 +14,10 @@
 <div class="mdui-appbar mdui-appbar-fixed">
     <div class="mdui-toolbar mdui-color-blue-grey">
         <a href="javascript:;" class="mdui-btn mdui-btn-icon" id="menu_btn"><i class="mdui-icon material-icons">menu</i></a>
-        <a href="javascript:;" class="mdui-typo-headline">Online Diagnostic Center</a>
+        <a href="../../index.php" class="mdui-typo-headline">Online Diagnostic Center</a>
         <div class="mdui-toolbar-spacer"></div>
-        <a href="javascript:;" class="mdui-btn appbar-link-text">Home</a>
-        <a href="javascript:;" class="mdui-btn appbar-link-text">Find Doctors</a>
+        <a href="../../index.php" class="mdui-btn appbar-link-text">Home</a>
+        <a href="../../find_doctors.php" class="mdui-btn appbar-link-text">Find Doctors</a>
         <a href="javascript:;" class="mdui-btn appbar-link-text">Medical Services</a>
         <a href="javascript:;" class="mdui-btn appbar-link-text">Contact</a>
         <a href="javascript:;" class="mdui-btn appbar-link-text">About Us</a>
@@ -46,7 +46,7 @@
                 <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
             </div>
             <ul class="mdui-collapse-item-body mdui-list mdui-list-dense">
-                <li class="mdui-list-item mdui-ripple">Find Doctors</li>
+                <li class="mdui-list-item mdui-ripple" id="find_doctor">Find Doctors</li>
                 <li class="mdui-list-item mdui-ripple">Medical Services</li>
                 <li class="mdui-list-item mdui-ripple">Ambulance</li>
                 <li class="mdui-list-item mdui-ripple">Disease Detection</li>
@@ -79,4 +79,4 @@
     </ul>
 </div>
 
-<div class="mdui-container-fluid" style="width: 100%">
+<div class="mdui-container-fluid" style="width: 100%; height: 100%;">

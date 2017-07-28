@@ -24,7 +24,7 @@ $fetchedDoctors = getAllDoctors();
 </div>
 
 
-<div class=" mdui-m-a-1 mdui-row">
+<div class="mdui-m-a-1 mdui-row">
     <?php
         foreach ($fetchedDoctors as $doctor){
             echo "<div class=\"mdui-col-xs-6 mdui-col-sm-4\" >
