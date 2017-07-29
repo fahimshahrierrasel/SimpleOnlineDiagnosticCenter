@@ -84,6 +84,27 @@ function insertNewDoctor($user, $fetchedUser){
 
 }
 
+
+
+function insertDoctorSchedule($user, $fetchedDoctor){
+    global $dbConnection;
+
+    try{
+        $appointTableSql = 'INSERT INTO DiagnosticCenter.AppointmentTimeTable(VisitingDay, VisitingTime, Doctor_idDoctor) VALUE (?, ?, ?)';
+        $appointTablePrepareStmt = $dbConnection->prepare($appointTableSql);
+        $appointTablePrepareStmt->bindValue(1, $user['weekday'], PDO::PARAM_STR);
+        $appointTablePrepareStmt->bindValue(2, $user['time'], PDO::PARAM_STR);
+        $appointTablePrepareStmt->bindValue(3, $fetchedDoctor['idDoctor'], PDO::PARAM_STR);
+        $appointTablePrepareStmt->execute();
+        return true;
+
+    }catch (Exception $exception){
+        echo "Error!: " . $exception->getMessage();
+        return false;
+    }
+
+}
+
 function insertNewPathologist($user, $fetchedUser){
     global $dbConnection;
 
@@ -154,6 +175,23 @@ function findUserById($id){
     }
 }
 
+function findDoctorIdByUserId($userID){
+    global $dbConnection;
+
+    try{
+        $appointTableSql = 'SELECT * FROM DiagnosticCenter.Doctor WHERE User_idUser = ? LIMIT 1';
+        $appointTablePrepareStmt = $dbConnection->prepare($appointTableSql);
+        $appointTablePrepareStmt->bindValue(1, $userID, PDO::PARAM_INT);
+        $appointTablePrepareStmt->execute();
+        $fetchedDoctor = $appointTablePrepareStmt->fetchAll();
+        return $fetchedDoctor[0];
+
+    }catch (Exception $exception){
+        echo "Error!: " . $exception->getMessage();
+        return false;
+    }
+}
+
 function getAllDoctors(){
     global $dbConnection;
     try{
@@ -162,6 +200,22 @@ function getAllDoctors(){
         $doctorPrepareStmt->execute();
         $fetchedDoctor = $doctorPrepareStmt->fetchAll();
         return $fetchedDoctor;
+
+    }catch (Exception $exception){
+        echo "Error!: " . $exception->getMessage();
+        return null;
+    }
+}
+
+function getDoctorAppointmentTable($doctor){
+    global $dbConnection;
+    try{
+        $tableSql = 'SELECT * FROM DiagnosticCenter.AppointmentTimeTable WHERE Doctor_idDoctor = ?';
+        $tablePrepareStmt = $dbConnection->prepare($tableSql);
+        $tablePrepareStmt->bindValue(1, $doctor['idDoctor'], PDO::PARAM_INT);
+        $tablePrepareStmt->execute();
+        $fetchedTable = $tablePrepareStmt->fetchAll();
+        return $fetchedTable;
 
     }catch (Exception $exception){
         echo "Error!: " . $exception->getMessage();
