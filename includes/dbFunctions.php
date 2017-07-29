@@ -192,6 +192,23 @@ function findDoctorIdByUserId($userID){
     }
 }
 
+function findDoctorIdByDoctorId($doctorId){
+    global $dbConnection;
+
+    try{
+        $appointTableSql = 'SELECT * FROM DiagnosticCenter.Doctor WHERE idDoctor = ? LIMIT 1';
+        $appointTablePrepareStmt = $dbConnection->prepare($appointTableSql);
+        $appointTablePrepareStmt->bindValue(1, $doctorId, PDO::PARAM_INT);
+        $appointTablePrepareStmt->execute();
+        $fetchedDoctor = $appointTablePrepareStmt->fetchAll();
+        return $fetchedDoctor[0];
+
+    }catch (Exception $exception){
+        echo "Error!: " . $exception->getMessage();
+        return false;
+    }
+}
+
 function getAllDoctors(){
     global $dbConnection;
     try{

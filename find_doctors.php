@@ -69,6 +69,10 @@
                                   <div class=\"mdui-card-primary-subtitle\">".$doctor['Specialty']."</div>
                                   <div class=\"mdui-card-primary-subtitle\">".$doctor['Department']."</div>
                                 </div>
+                                <div class=\"mdui-card-actions\">
+                                <button class=\"mdui-btn mdui-ripple\">Make Appointment</button>
+                                <button class=\"mdui-btn mdui-ripple\" onclick='location.href=\"doctor_details.php?docId=".$doctor['idDoctor']."\"'>Details</button>
+                            </div>
                             </div>
                       </div>";
         }
