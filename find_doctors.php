@@ -105,6 +105,10 @@
                                     "<div class=\"mdui-card-primary-subtitle\">"+response['Specialty']+"</div>"+
                                     "<div class=\"mdui-card-primary-subtitle\">"+response['Department']+"</div>"+
                                 "</div>"+
+                                "<div class=\"mdui-card-actions\">"+
+                                    "<button class=\"mdui-btn mdui-ripple\">Make Appointment</button>"+
+                                    "<button class=\"mdui-btn mdui-ripple\" onclick='location.href=\"doctor_details.php?docId="+response['idDoctor']+"\"'>Details</button>"+
+                                "</div>"+
                             "</div>"+
                         "</div>");
                 });
