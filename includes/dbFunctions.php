@@ -192,7 +192,7 @@ function findDoctorIdByUserId($userID){
     }
 }
 
-function findDoctorIdByDoctorId($doctorId){
+function findDoctorByDoctorId($doctorId){
     global $dbConnection;
 
     try{

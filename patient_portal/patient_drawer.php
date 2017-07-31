@@ -33,7 +33,7 @@ $user = findUserByUsername($tempUser);
         </li>
         <li class="mdui-list-item mdui-ripple"><i class="mdui-list-item-icon mdui-icon material-icons">move_to_inbox</i>
 
-            <div class="mdui-list-item-content">Inbox</div>
+            <div class="mdui-list-item-content" onclick="location.href='find_doctors.php'">Find Doctors</div>
         </li>
         <li class="mdui-list-item mdui-ripple"><i class="mdui-list-item-icon mdui-icon material-icons">star</i>
 

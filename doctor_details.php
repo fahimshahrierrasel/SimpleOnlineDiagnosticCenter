@@ -10,7 +10,7 @@ include("./includes/components/header.php");
 include "./includes/dbFunctions.php";
 
 $docId = $_GET['docId'];
-$fetchedDoctor = findDoctorIdByDoctorId($docId);
+$fetchedDoctor = findDoctorByDoctorId($docId);
 $fetchedTable = getDoctorAppointmentTable($docId);
 ?>
 

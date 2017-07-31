@@ -2,12 +2,12 @@
 /**
  * Created by PhpStorm.
  * User: fahim
- * Date: 7/28/17
- * Time: 3:01 PM
+ * Date: 7/30/17
+ * Time: 9:08 PM
  */
-    include "./includes/dbFunctions.php";
-    include "./includes/components/header.php";
-    $fetchedDoctors = getAllDoctors();
+include "patient_drawer.php";
+$title="Patient Portal";
+$fetchedDoctors = getAllDoctors();
 ?>
 
 <div class="mdui-container" style="margin-top: 70px">
@@ -53,7 +53,7 @@
             </div>
         </div>
     </div>
-<!--    <div id="searched_doctor" class="mdui-row" style="margin-top: 30px"></div>-->
+    <!--    <div id="searched_doctor" class="mdui-row" style="margin-top: 30px"></div>-->
     <div class="mdui-m-a-1 mdui-row" id="searched_doctor">
         <?php
         foreach ($fetchedDoctors as $doctor){
@@ -61,7 +61,7 @@
                             <div class=\"mdui-card mdui-m-a-1\">
                                 <div class=\"mdui-card-media\" >
                                   
-                                    <img src=\"./images/doctor.png\"/>
+                                    <img src=\"../images/doctor.png\"/>
                                 </div>
                                 <div class=\"mdui-card-primary\" style=\"min-height: 90px !important; max-height: 120px !important;\">
                                   <div class=\"mdui-text-capitalize\" >".$doctor['Name']."</div>
@@ -70,8 +70,8 @@
                                   <div class=\"mdui-card-primary-subtitle\">".$doctor['Department']."</div>
                                 </div>
                                 <div class=\"mdui-card-actions\">
-                                <button class=\"mdui-btn mdui-ripple\" onclick='location.href=\"patient_portal/appointments.php?docId=".$doctor['idDoctor']."\"'>Make Appointment</button>
-                                <button class=\"mdui-btn mdui-ripple\" onclick='location.href=\"doctor_details.php?docId=".$doctor['idDoctor']."\"'>Details</button>
+                                <button class=\"mdui-btn mdui-ripple\" onclick='location.href=\"appointments.php?docId=".$doctor['idDoctor']."\"'>Make Appointment</button>
+                                <button class=\"mdui-btn mdui-ripple\" onclick='location.href=\"../doctor_details.php?docId=".$doctor['idDoctor']."\"'>Details</button>
                             </div>
                             </div>
                       </div>";
@@ -95,21 +95,21 @@
                 responses.forEach(function (response) {
                     $('#searched_doctor').append(
                         "<div class=\"mdui-col-xs-6 mdui-col-sm-4\" >"+
-                            "<div class=\"mdui-card mdui-m-a-1\">"+
-                                "<div class=\"mdui-card-media\" >"+
-                                    "<img src=\"./images/doctor.png\"/>"+
-                                "</div>"+
-                                "<div class=\"mdui-card-primary\" style=\"min-height: 90px !important; max-height: 120px !important;\">"+
-                                    "<div class=\"mdui-text-capitalize\">" + response['Name'] + "</div>"+
-                                    "<div class=\"mdui-card-primary-subtitle\">"+response['Degree']+"</div>"+
-                                    "<div class=\"mdui-card-primary-subtitle\">"+response['Specialty']+"</div>"+
-                                    "<div class=\"mdui-card-primary-subtitle\">"+response['Department']+"</div>"+
-                                "</div>"+
-                                "<div class=\"mdui-card-actions\">"+
-                                    "<button class=\"mdui-btn mdui-ripple\" onclick='location.href=\"patient_portal/appointments.php?docId="+response['idDoctor']+"\"'>Make Appointment</button>"+
-                                    "<button class=\"mdui-btn mdui-ripple\" onclick='location.href=\"doctor_details.php?docId="+response['idDoctor']+"\"'>Details</button>"+
-                                "</div>"+
-                            "</div>"+
+                        "<div class=\"mdui-card mdui-m-a-1\" id='cards'>"+
+                        "<div class=\"mdui-card-media\" >"+
+                        "<img src=\"../images/doctor.png\"/>"+
+                        "</div>"+
+                        "<div class=\"mdui-card-primary\" style=\"min-height: 90px !important; max-height: 120px !important;\">"+
+                        "<div class=\"mdui-text-capitalize\">" + response['Name'] + "</div>"+
+                        "<div class=\"mdui-card-primary-subtitle\">"+response['Degree']+"</div>"+
+                        "<div class=\"mdui-card-primary-subtitle\">"+response['Specialty']+"</div>"+
+                        "<div class=\"mdui-card-primary-subtitle\">"+response['Department']+"</div>"+
+                        "</div>"+
+                        "<div class=\"mdui-card-actions\" id='actions'>"+
+                        "<button class='mdui-btn mdui-ripple' onclick='location.href=\"appointments.php?docId="+response['idDoctor']+"\"'>Make Appointment</button>"+
+                        "<button class=\"mdui-btn mdui-ripple\" onclick='location.href=\"../doctor_details.php?docId="+response['idDoctor']+"\"'>Details</button>"+
+                        "</div>"+
+                        "</div>"+
                         "</div>");
                 });
             }
@@ -118,4 +118,11 @@
 </script>
 
 
-<?php include "./includes/components/footer.php"; ?>
+
+
+<script type="text/javascript">
+    document.title = "<?=$title;?>";
+    $('#dashboard_title').text("<?=$title;?>");
+    $('#dashboard_file').text("Find Doctors");
+</script>
+<?php include("../includes/portal_components/footer.php");?>
