@@ -306,6 +306,23 @@ function getPatientAppointments($patientId){
         echo "Error!: " . $exception->getMessage();
         return null;
     }
+}
 
+function getDoctorAppointments($doctorId){
+    global $dbConnection;
+    try{
+        $appointmentSql = 'Select Patient.Name, Appointment.RegistrationDate, Appointment.AppointmentDate, Appointment.AppointmentTime
+                          from DiagnosticCenter.Patient, DiagnosticCenter.Appointment
+                          Where Appointment.Patient_idPatient = Patient.idPatient and Appointment.Doctor_idDoctor = ?';
+        $appointmentPrepareStmt = $dbConnection->prepare($appointmentSql);
+        $appointmentPrepareStmt->bindValue(1, $doctorId, PDO::PARAM_INT);
+        $appointmentPrepareStmt->execute();
+        $fetchedAppoints = $appointmentPrepareStmt->fetchAll();
+        return $fetchedAppoints;
+
+    }catch (Exception $exception){
+        echo "Error!: " . $exception->getMessage();
+        return null;
+    }
 }
 ?>
