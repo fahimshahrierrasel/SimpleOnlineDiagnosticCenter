@@ -70,7 +70,7 @@
                                   <div class=\"mdui-card-primary-subtitle\">".$doctor['Department']."</div>
                                 </div>
                                 <div class=\"mdui-card-actions\">
-                                <button class=\"mdui-btn mdui-ripple\" onclick='location.href=\"patient_portal/appointments.php?docId=".$doctor['idDoctor']."\"'>Make Appointment</button>
+                                <button class=\"mdui-btn mdui-ripple\" onclick='location.href=\"patient_portal/appointment_form.php?docId=".$doctor['idDoctor']."\"'>Make Appointment</button>
                                 <button class=\"mdui-btn mdui-ripple\" onclick='location.href=\"doctor_details.php?docId=".$doctor['idDoctor']."\"'>Details</button>
                             </div>
                             </div>
@@ -106,7 +106,7 @@
                                     "<div class=\"mdui-card-primary-subtitle\">"+response['Department']+"</div>"+
                                 "</div>"+
                                 "<div class=\"mdui-card-actions\">"+
-                                    "<button class=\"mdui-btn mdui-ripple\" onclick='location.href=\"patient_portal/appointments.php?docId="+response['idDoctor']+"\"'>Make Appointment</button>"+
+                                    "<button class=\"mdui-btn mdui-ripple\" onclick='location.href=\"patient_portal/appointment_form.php?docId="+response['idDoctor']+"\"'>Make Appointment</button>"+
                                     "<button class=\"mdui-btn mdui-ripple\" onclick='location.href=\"doctor_details.php?docId="+response['idDoctor']+"\"'>Details</button>"+
                                 "</div>"+
                             "</div>"+

@@ -125,6 +125,25 @@ function insertNewPathologist($user, $fetchedUser){
 
 }
 
+
+function insertAppointment($registerDate, $appointmentDate, $appointmentTime, $patientId, $doctorId){
+    global $dbConnection;
+    try{
+        $appointmentSql = 'INSERT INTO DiagnosticCenter.Appointment(RegistrationDate, AppointmentDate, AppointmentTime, Patient_idPatient, Doctor_idDoctor) VALUE (STR_TO_DATE(?, \'%d-%m-%y\'), STR_TO_DATE(?, \'%d-%m-%y\'), ?, ?, ?)';
+        $appointmentPrepareStmt = $dbConnection->prepare($appointmentSql);
+        $appointmentPrepareStmt->bindValue(1, $registerDate, PDO::PARAM_STR);
+        $appointmentPrepareStmt->bindValue(2, $appointmentDate, PDO::PARAM_STR);
+        $appointmentPrepareStmt->bindValue(3, $appointmentTime, PDO::PARAM_STR);
+        $appointmentPrepareStmt->bindValue(4, $patientId, PDO::PARAM_INT);
+        $appointmentPrepareStmt->bindValue(5, $doctorId, PDO::PARAM_INT);
+        $appointmentPrepareStmt->execute();
+        return true;
+    }catch (Exception $exception){
+        echo "Error!: " . $exception->getMessage();
+        return false;
+    }
+}
+
 function findUserByUsernameAndEmail($user){
     global $dbConnection;
     try{
@@ -271,4 +290,22 @@ function getAllPathologist(){
     }
 }
 
+function getPatientAppointments($patientId){
+    global $dbConnection;
+    try{
+        $appointmentSql = 'Select Doctor.Name, Appointment.RegistrationDate, Appointment.AppointmentDate, Appointment.AppointmentTime
+                          from DiagnosticCenter.Doctor, DiagnosticCenter.Appointment
+                          Where Appointment.Doctor_idDoctor = Doctor.idDoctor and Appointment.Patient_idPatient = ?';
+        $appointmentPrepareStmt = $dbConnection->prepare($appointmentSql);
+        $appointmentPrepareStmt->bindValue(1, $patientId, PDO::PARAM_INT);
+        $appointmentPrepareStmt->execute();
+        $fetchedAppoints = $appointmentPrepareStmt->fetchAll();
+        return $fetchedAppoints;
+
+    }catch (Exception $exception){
+        echo "Error!: " . $exception->getMessage();
+        return null;
+    }
+
+}
 ?>
