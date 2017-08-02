@@ -311,7 +311,7 @@ function getPatientAppointments($patientId){
 function getDoctorAppointments($doctorId){
     global $dbConnection;
     try{
-        $appointmentSql = 'Select Patient.Name, Appointment.RegistrationDate, Appointment.AppointmentDate, Appointment.AppointmentTime
+        $appointmentSql = 'Select Patient.Name, Patient.idPatient, Appointment.RegistrationDate, Appointment.AppointmentDate, Appointment.AppointmentTime
                           from DiagnosticCenter.Patient, DiagnosticCenter.Appointment
                           Where Appointment.Patient_idPatient = Patient.idPatient and Appointment.Doctor_idDoctor = ?';
         $appointmentPrepareStmt = $dbConnection->prepare($appointmentSql);
