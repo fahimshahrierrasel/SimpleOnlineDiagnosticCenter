@@ -127,11 +127,64 @@ $appointments = getDoctorAppointments($doctor['idDoctor']);
         var doctorId = <?php echo $doctor['idDoctor']; ?>;
         var prescribedDate = $('#prescribed_date').val();
         var symptom = $('#symptoms').val();
-        console.log(patientId);
-        console.log(doctorId);
-        console.log(prescribedDate);
-        console.log(symptom);
-        console.log(allMedicine);
+
+//        $.ajax({
+//            async: true,
+//            type: "post",
+//            dataType: "json",
+//            url: "/ajax_calls/add_prescription.php",
+//            data: {'patient_id': patientId, 'doctor_id': doctorId, 'prescribed_date': prescribedDate,
+//                  'symptom': symptom, 'all_medicine': allMedicine},
+//            success: function (responses) {
+//                console.log(responses)
+//            }
+//        });
+
+        var method = 'post';
+        var form = document.createElement('form');
+        form.setAttribute('method', method);
+        form.setAttribute('action', '/ajax_calls/add_prescription.php');
+        var att = document.createAttribute("hidden");
+        form.setAttributeNode(att);
+
+
+        var patientIdElement = document.createElement('input');
+        patientIdElement.setAttribute('type', 'text');
+        patientIdElement.setAttribute('name', 'patient_id');
+        patientIdElement.setAttribute('value', patientId);
+
+        form.appendChild(patientIdElement);
+
+        var doctorIdElement = document.createElement('input');
+        doctorIdElement.setAttribute('type', 'text');
+        doctorIdElement.setAttribute('name', 'doctor_id');
+        doctorIdElement.setAttribute('value', doctorId);
+
+        form.appendChild(doctorIdElement);
+
+        var dateElement = document.createElement('input');
+        dateElement.setAttribute('type', 'text');
+        dateElement.setAttribute('name', 'prescribed_date');
+        dateElement.setAttribute('value', prescribedDate);
+
+        form.appendChild(dateElement);
+
+        var symptomElement = document.createElement('input');
+        symptomElement.setAttribute('type', 'text');
+        symptomElement.setAttribute('name', 'symptom');
+        symptomElement.setAttribute('value', symptom);
+
+        form.appendChild(symptomElement);
+
+        var medicineElement = document.createElement('input');
+        medicineElement.setAttribute('type', 'text');
+        medicineElement.setAttribute('name', 'all_medicine');
+        medicineElement.setAttribute('value', JSON.stringify(allMedicine));
+        form.appendChild(medicineElement);
+
+        document.body.appendChild(form);
+        form.submit();
+
     });
 
 </script>

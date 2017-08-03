@@ -144,6 +144,42 @@ function insertAppointment($registerDate, $appointmentDate, $appointmentTime, $p
     }
 }
 
+
+function insertPrescription($prescribedDate, $symptom, $patientId, $doctorId){
+    global $dbConnection;
+    try{
+        $prescriptionSql = 'INSERT INTO DiagnosticCenter.Prescription(Date, Problem, Patient_idPatient, Doctor_idDoctor) VALUE (STR_TO_DATE(?, \'%d-%m-%y\'), ?, ?, ?)';
+        $prescriptionPrepareStmt = $dbConnection->prepare($prescriptionSql);
+        $prescriptionPrepareStmt->bindValue(1, $prescribedDate, PDO::PARAM_STR);
+        $prescriptionPrepareStmt->bindValue(2, $symptom, PDO::PARAM_STR);
+        $prescriptionPrepareStmt->bindValue(3, $patientId, PDO::PARAM_INT);
+        $prescriptionPrepareStmt->bindValue(4, $doctorId, PDO::PARAM_INT);
+        $prescriptionPrepareStmt->execute();
+        return true;
+    }catch (Exception $exception){
+        echo "Error!: " . $exception->getMessage();
+        return false;
+    }
+}
+
+function insertMedicine($medicineName, $dosage, $medicineUse, $prescriptionId, $patientId, $doctorId){
+    global $dbConnection;
+    try{
+        $medicineSql = 'INSERT INTO DiagnosticCenter.prescribedmedicine(Medicine, Dosage, `Use`, Prescription_idPrescription, Prescription_Patient_idPatient, Prescription_Doctor_idDoctor) VALUE (?, ?, ?, ?, ?, ?)';
+        $medicinePrepareStmt = $dbConnection->prepare($medicineSql);
+        $medicinePrepareStmt->bindValue(1, $medicineName, PDO::PARAM_STR);
+        $medicinePrepareStmt->bindValue(2, $dosage, PDO::PARAM_STR);
+        $medicinePrepareStmt->bindValue(3, $medicineUse, PDO::PARAM_STR);
+        $medicinePrepareStmt->bindValue(4, $prescriptionId, PDO::PARAM_INT);
+        $medicinePrepareStmt->bindValue(5, $patientId, PDO::PARAM_INT);
+        $medicinePrepareStmt->bindValue(6, $doctorId, PDO::PARAM_INT);
+        $medicinePrepareStmt->execute();
+    }catch (Exception $exception){
+        echo "Error!: " . $exception->getMessage();
+        return false;
+    }
+}
+
 function findUserByUsernameAndEmail($user){
     global $dbConnection;
     try{
@@ -319,6 +355,24 @@ function getDoctorAppointments($doctorId){
         $appointmentPrepareStmt->execute();
         $fetchedAppoints = $appointmentPrepareStmt->fetchAll();
         return $fetchedAppoints;
+
+    }catch (Exception $exception){
+        echo "Error!: " . $exception->getMessage();
+        return null;
+    }
+}
+
+function getPrescriptionId($patientId, $doctorId, $prescribedDate){
+    global $dbConnection;
+    try{
+        $appointmentSql = 'Select idPrescription From DiagnosticCenter.Prescription Where Patient_idPatient = ? and Doctor_idDoctor = ? and Date = STR_TO_DATE(?, \'%d-%m-%y\') LIMIT 1';
+        $appointmentPrepareStmt = $dbConnection->prepare($appointmentSql);
+        $appointmentPrepareStmt->bindValue(1, $patientId, PDO::PARAM_INT);
+        $appointmentPrepareStmt->bindValue(2, $doctorId, PDO::PARAM_INT);
+        $appointmentPrepareStmt->bindValue(3, $prescribedDate, PDO::PARAM_STR);
+        $appointmentPrepareStmt->execute();
+        $fetchedAppoints = $appointmentPrepareStmt->fetchAll();
+        return $fetchedAppoints[0];
 
     }catch (Exception $exception){
         echo "Error!: " . $exception->getMessage();
