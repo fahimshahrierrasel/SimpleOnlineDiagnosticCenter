@@ -128,22 +128,11 @@ $appointments = getDoctorAppointments($doctor['idDoctor']);
         var prescribedDate = $('#prescribed_date').val();
         var symptom = $('#symptoms').val();
 
-//        $.ajax({
-//            async: true,
-//            type: "post",
-//            dataType: "json",
-//            url: "/ajax_calls/add_prescription.php",
-//            data: {'patient_id': patientId, 'doctor_id': doctorId, 'prescribed_date': prescribedDate,
-//                  'symptom': symptom, 'all_medicine': allMedicine},
-//            success: function (responses) {
-//                console.log(responses)
-//            }
-//        });
 
         var method = 'post';
         var form = document.createElement('form');
         form.setAttribute('method', method);
-        form.setAttribute('action', '/ajax_calls/add_prescription.php');
+        form.setAttribute('action', '/doctor_portal/add_prescription.php');
         var att = document.createAttribute("hidden");
         form.setAttributeNode(att);
 
@@ -192,7 +181,7 @@ $appointments = getDoctorAppointments($doctor['idDoctor']);
 <script type="text/javascript">
     document.title = "<?=$title;?>";
     $('#dashboard_title').text("<?=$title;?>");
-    $('#dashboard_file').text("New Appointment");
+    $('#dashboard_file').text("New Prescription");
 </script>
 
 <?php include "../includes/portal_components/footer.php"?>

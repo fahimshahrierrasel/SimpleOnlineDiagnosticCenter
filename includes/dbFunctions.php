@@ -174,6 +174,24 @@ function insertMedicine($medicineName, $dosage, $medicineUse, $prescriptionId, $
         $medicinePrepareStmt->bindValue(5, $patientId, PDO::PARAM_INT);
         $medicinePrepareStmt->bindValue(6, $doctorId, PDO::PARAM_INT);
         $medicinePrepareStmt->execute();
+        return true;
+    }catch (Exception $exception){
+        echo "Error!: " . $exception->getMessage();
+        return false;
+    }
+}
+
+function findPatientIdByUserId($userId){
+    global $dbConnection;
+
+    try{
+        $patientSql = 'SELECT * FROM DiagnosticCenter.Patient WHERE User_idUser = ? LIMIT 1';
+        $patientPrepareStmt = $dbConnection->prepare($patientSql);
+        $patientPrepareStmt->bindValue(1,$userId, PDO::PARAM_INT);
+        $patientPrepareStmt->execute();
+        $fetchedPatient = $patientPrepareStmt->fetchAll();
+        return $fetchedPatient[0]['idPatient'];
+
     }catch (Exception $exception){
         echo "Error!: " . $exception->getMessage();
         return false;
@@ -379,4 +397,53 @@ function getPrescriptionId($patientId, $doctorId, $prescribedDate){
         return null;
     }
 }
+
+function getPrescriptionsByPatientId($patientId){
+    global $dbConnection;
+    try{
+        $prescriptionSql = 'SELECT * FROM DiagnosticCenter.Prescription, DiagnosticCenter.Doctor WHERE idDoctor=Prescription.Doctor_idDoctor AND Patient_idPatient = ?';
+        $prescriptionPrepareStmt = $dbConnection->prepare($prescriptionSql);
+        $prescriptionPrepareStmt->bindValue(1, $patientId, PDO::PARAM_INT);
+        $prescriptionPrepareStmt->execute();
+        $fetchedPrescription = $prescriptionPrepareStmt->fetchAll();
+        return $fetchedPrescription;
+
+    }catch (Exception $exception){
+        echo "Error!: " . $exception->getMessage();
+        return null;
+    }
+}
+
+function getPrescriptionsByDoctorId($doctorId){
+    global $dbConnection;
+    try{
+        $prescriptionSql = 'SELECT * FROM DiagnosticCenter.Prescription WHERE Doctor_idDoctor = ?';
+        $prescriptionPrepareStmt = $dbConnection->prepare($prescriptionSql);
+        $prescriptionPrepareStmt->bindValue(1, $doctorId, PDO::PARAM_INT);
+        $prescriptionPrepareStmt->execute();
+        $fetchedPrescription = $prescriptionPrepareStmt->fetchAll();
+        return $fetchedPrescription;
+
+    }catch (Exception $exception){
+        echo "Error!: " . $exception->getMessage();
+        return null;
+    }
+}
+
+function getPrescribedMedicine($prescriptionId){
+    global $dbConnection;
+    try{
+        $medicineSql = 'SELECT * FROM DiagnosticCenter.PrescribedMedicine WHERE Prescription_idPrescription = ?';
+        $prescribedMedicinePrepareStmt = $dbConnection->prepare($medicineSql);
+        $prescribedMedicinePrepareStmt->bindValue(1, $prescriptionId, PDO::PARAM_INT);
+        $prescribedMedicinePrepareStmt->execute();
+        $fetchedPrescription = $prescribedMedicinePrepareStmt->fetchAll();
+        return $fetchedPrescription;
+
+    }catch (Exception $exception){
+        echo "Error!: " . $exception->getMessage();
+        return null;
+    }
+}
+
 ?>
