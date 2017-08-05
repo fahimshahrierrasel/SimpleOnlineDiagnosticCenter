@@ -40,11 +40,11 @@ $user = findUserByUsername($tempUser);
         </li>
         <li class="mdui-list-item mdui-ripple"><i class="mdui-list-item-icon mdui-icon material-icons">send</i>
 
-            <div class="mdui-list-item-content" onclick="location.href='doctor_prescriptions.php'">Prescriptions</div>
+            <div class="mdui-list-item-content" onclick="location.href='doctor_prescriptions.php'">Write Prescription</div>
         </li>
         <li class="mdui-list-item mdui-ripple"><i class="mdui-list-item-icon mdui-icon material-icons">drafts</i>
 
-            <div class="mdui-list-item-content">Drafts</div>
+            <div class="mdui-list-item-content" onclick="location.href='all_prescriptions.php'">All Prescriptions</div>
         </li>
         <li class="mdui-subheader">Subheader</li>
         <li class="mdui-list-item mdui-ripple"><i class="mdui-list-item-icon mdui-icon material-icons">email</i>

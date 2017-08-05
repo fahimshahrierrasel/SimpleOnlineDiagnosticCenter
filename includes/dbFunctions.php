@@ -417,7 +417,7 @@ function getPrescriptionsByPatientId($patientId){
 function getPrescriptionsByDoctorId($doctorId){
     global $dbConnection;
     try{
-        $prescriptionSql = 'SELECT * FROM DiagnosticCenter.Prescription WHERE Doctor_idDoctor = ?';
+        $prescriptionSql = 'SELECT * FROM DiagnosticCenter.Prescription, DiagnosticCenter.Patient WHERE idPatient=Prescription.Patient_idPatient AND Doctor_idDoctor = ?';
         $prescriptionPrepareStmt = $dbConnection->prepare($prescriptionSql);
         $prescriptionPrepareStmt->bindValue(1, $doctorId, PDO::PARAM_INT);
         $prescriptionPrepareStmt->execute();
