@@ -27,7 +27,7 @@ $fetchedPrescription = getPrescriptionsByDoctorId($doctor['idDoctor']);
             echo "<div class=\"mdui-card mdui-m-b-2\">
             <div class=\"mdui-card-primary\">
                 <div class=\"mdui-card-primary-title\">Prescribed Date: " . $prescription['Date'] . "</div>
-                <div class=\"mdui-card-primary-subtitle\">Prepared By: " . $prescription['Name'] . "</div>
+                <div class=\"mdui-card-primary-subtitle\">Patient: " . $prescription['Name'] . "</div>
                 <div class=\"mdui-card-primary-subtitle\">Symptoms: " . $prescription['Problem'] . "</div>
             </div>
             <div class=\"mdui-card-content\">

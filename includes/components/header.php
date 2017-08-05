@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../../styles/main_style.css">
     <script src="../../libaries/mdui/js/mdui.js"></script>
     <script src="../../libaries/jquery-3.2.1.js"></script>
+
 </head>
 <body class="mdui-drawer-body-left" style="width: 100%">
 <div class="mdui-appbar mdui-appbar-fixed">
@@ -18,9 +19,9 @@
         <div class="mdui-toolbar-spacer"></div>
         <a href="../../index.php" class="mdui-btn appbar-link-text">Home</a>
         <a href="../../find_doctors.php" class="mdui-btn appbar-link-text">Find Doctors</a>
-        <a href="javascript:;" class="mdui-btn appbar-link-text">Medical Services</a>
-        <a href="javascript:;" class="mdui-btn appbar-link-text">Contact</a>
-        <a href="javascript:;" class="mdui-btn appbar-link-text">About Us</a>
+        <a href="../../medical_services.php" class="mdui-btn appbar-link-text">Medical Services</a>
+        <a href="../../contact.php" class="mdui-btn appbar-link-text">Contact</a>
+        <a href="../../about.php" class="mdui-btn appbar-link-text">About Us</a>
     </div>
 </div>
 <div class="mdui-drawer mdui-drawer-full-height mdui-shadow-5 mdui-color-white" id="drawer" style="margin-top: 64px;">
@@ -31,12 +32,7 @@
         </li>
         <li class="mdui-list-item mdui-ripple">
             <i class="mdui-list-item-icon mdui-icon material-icons">home</i>
-            <div class="mdui-list-item-content">Home</div>
-        </li>
-
-        <li class="mdui-list-item mdui-ripple">
-            <i class="mdui-list-item-icon mdui-icon material-icons">dashboard</i>
-            <div class="mdui-list-item-content">Dashboard</div>
+            <div class="mdui-list-item-content" id="home_btn">Home</div>
         </li>
 
         <li class="mdui-collapse-item">
@@ -47,9 +43,8 @@
             </div>
             <ul class="mdui-collapse-item-body mdui-list mdui-list-dense">
                 <li class="mdui-list-item mdui-ripple" id="find_doctor">Find Doctors</li>
-                <li class="mdui-list-item mdui-ripple">Medical Services</li>
+                <li class="mdui-list-item mdui-ripple" id="medical_services">Medical Services</li>
                 <li class="mdui-list-item mdui-ripple">Ambulance</li>
-                <li class="mdui-list-item mdui-ripple">Disease Detection</li>
             </ul>
         </li>
         <li class="mdui-collapse-item">

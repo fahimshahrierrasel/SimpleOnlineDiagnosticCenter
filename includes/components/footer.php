@@ -11,12 +11,12 @@
         </div>
     </div>
     <div class="mdui-col-xs-6 mdui-clearfix">
-        <div class="mdui-valign mdui-float-right" style="font-size: 200%;">
-            <span class="zocial-dribbble" style="padding: 20px"></span>
-            <span class="zocial-twitter" style="padding: 20px"></span>
-            <span class="zocial-facebook" style="padding: 20px"></span>
-            <span class="zocial-reddit" style="padding: 20px"></span>
-            <span class="zocial-googleplus" style="padding: 20px"></span>
+        <div class="mdui-valign mdui-float-right">
+            <span class="zocial-dribbble mdui-typo-display-1" id="dribbble" style="padding: 20px;"></span>
+            <span class="zocial-twitter mdui-typo-display-1" id="twitter" style="padding: 20px"></span>
+            <span class="zocial-facebook mdui-typo-display-1" id="facebook" style="padding: 20px"></span>
+            <span class="zocial-reddit mdui-typo-display-1" id="reddit" style="padding: 20px"></span>
+            <span class="zocial-googleplus mdui-typo-display-1" id="googleplus" style="padding: 20px"></span>
         </div>
     </div>
 </div>
@@ -28,6 +28,9 @@
         inst.toggle();
     });
 
+    $('#home_btn').click(function() {
+        location.href='index.php';
+    });
     $('#patient_portal').click(function() {
         location.href='../../patient_portal/patient_login.php';
     });
@@ -40,9 +43,48 @@
     $('#pathologist_portal').click(function() {
         location.href='../../pathologist_portal/pathologist_login.php';
     });
-    $('#find_doctor').click(function() {
+    $('#find_doctor,#doctor_appointment').click(function() {
         location.href='../../find_doctors.php';
     });
+    $('#medical_services').click(function() {
+        location.href='medical_services.php';
+    });
+
+    $('#dribbble').hover(function(){
+            $(this).addClass('mdui-text-color-pink');
+        },
+        function(){
+            $(this).removeClass('mdui-text-color-pink');
+        });
+
+    $('#twitter').hover(function(){
+            $(this).addClass('mdui-text-color-blue');
+        },
+        function(){
+            $(this).removeClass('mdui-text-color-blue');
+        });
+
+    $('#facebook').hover(function(){
+            $(this).addClass('mdui-text-color-indigo');
+        },
+        function(){
+            $(this).removeClass('mdui-text-color-indigo');
+        });
+
+    $('#reddit').hover(function(){
+            $(this).addClass('mdui-text-color-deep-orange');
+        },
+        function(){
+            $(this).removeClass('mdui-text-color-deep-orange');
+        });
+
+    $('#googleplus').hover(function(){
+            $(this).addClass('mdui-text-color-red');
+        },
+        function(){
+            $(this).removeClass('mdui-text-color-red');
+        });
+
 </script>
 </body>
 </html>
