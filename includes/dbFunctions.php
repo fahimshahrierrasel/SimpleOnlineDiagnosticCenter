@@ -181,6 +181,23 @@ function insertMedicine($medicineName, $dosage, $medicineUse, $prescriptionId, $
     }
 }
 
+function findPatientByUserId($userId){
+    global $dbConnection;
+
+    try{
+        $patientSql = 'SELECT * FROM DiagnosticCenter.Patient WHERE User_idUser = ? LIMIT 1';
+        $patientPrepareStmt = $dbConnection->prepare($patientSql);
+        $patientPrepareStmt->bindValue(1,$userId, PDO::PARAM_INT);
+        $patientPrepareStmt->execute();
+        $fetchedPatient = $patientPrepareStmt->fetchAll();
+        return $fetchedPatient[0];
+
+    }catch (Exception $exception){
+        echo "Error!: " . $exception->getMessage();
+        return false;
+    }
+}
+
 function findPatientIdByUserId($userId){
     global $dbConnection;
 
@@ -248,7 +265,7 @@ function findUserById($id){
     }
 }
 
-function findDoctorIdByUserId($userID){
+function findDoctorByUserId($userID){
     global $dbConnection;
 
     try{
@@ -445,5 +462,38 @@ function getPrescribedMedicine($prescriptionId){
         return null;
     }
 }
+
+function uploadUserProfilePic($id, $image){
+    global $dbConnection;
+    try{
+        $idSql = "UPDATE DiagnosticCenter.User SET Image = ? WHERE idUser = ?";
+        $idPrepareStmt = $dbConnection->prepare($idSql);
+        $idPrepareStmt->bindValue(1, $image, PDO::PARAM_STR);
+        $idPrepareStmt->bindValue(2, $id, PDO::PARAM_INT);
+        $idPrepareStmt->execute();
+        return true;
+
+    }catch (Exception $exception){
+        echo "Error!: " . $exception->getMessage();
+        return null;
+    }
+}
+
+function updateUserPassword($userId, $password){
+    global $dbConnection;
+    try{
+        $idSql = "UPDATE DiagnosticCenter.User SET Password = ? WHERE idUser = ?";
+        $idPrepareStmt = $dbConnection->prepare($idSql);
+        $idPrepareStmt->bindValue(1, $password, PDO::PARAM_STR);
+        $idPrepareStmt->bindValue(2, $userId, PDO::PARAM_INT);
+        $idPrepareStmt->execute();
+        return true;
+
+    }catch (Exception $exception){
+        echo "Error!: " . $exception->getMessage();
+        return null;
+    }
+}
+
 
 ?>

@@ -11,7 +11,7 @@ $title="Doctor Portal";
 
 $idUser = $_SESSION['user_id'];
 
-$fetchedDoctor = findDoctorIdByUserId($idUser);
+$fetchedDoctor = findDoctorByUserId($idUser);
 
 $fetchedTable = getDoctorAppointmentTable($fetchedDoctor);
 

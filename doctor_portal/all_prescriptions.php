@@ -10,7 +10,7 @@ session_start();
 include "doctor_drawer.php";
 $title="Doctor Portal";
 
-$doctor = findDoctorIdByUserId($_SESSION['user_id']);
+$doctor = findDoctorByUserId($_SESSION['user_id']);
 $fetchedPrescription = getPrescriptionsByDoctorId($doctor['idDoctor']);
 ?>
 

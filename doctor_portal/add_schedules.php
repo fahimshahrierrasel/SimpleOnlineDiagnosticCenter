@@ -14,7 +14,7 @@ $idUser = $_SESSION['user_id'];
 
 
 
-$fetchedDoctor = findDoctorIdByUserId($idUser);
+$fetchedDoctor = findDoctorByUserId($idUser);
 if($fetchedDoctor) {
     insertDoctorSchedule($doctor, $fetchedDoctor);
     header("Location: /doctor_portal/schedules.php");

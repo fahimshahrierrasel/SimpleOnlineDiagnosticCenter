@@ -9,7 +9,7 @@
 include "doctor_drawer.php";
 session_start();
 $title="Doctor Portal";
-$doctor = findDoctorIdByUserId($_SESSION['user_id']);
+$doctor = findDoctorByUserId($_SESSION['user_id']);
 $appointments = getDoctorAppointments($doctor['idDoctor']);
 ?>
 <div class="mdui-card" id="login_card" style="width: auto; margin: 0 auto; margin-top: 30px; margin-bottom: 20px">
