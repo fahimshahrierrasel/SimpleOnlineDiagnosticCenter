@@ -12,7 +12,7 @@ $title="Patient Portal";
 $doctorId = $_GET['docId'];
 $fetchedDoctor = findDoctorByDoctorId($doctorId);
 $doctorTimeTable = getDoctorAppointmentTable($doctorId);
-$patientID = $_SESSION['user_id'];
+$patientID = findPatientIdByUserId($_SESSION['user_id']);
 ?>
 
 

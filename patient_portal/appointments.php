@@ -9,7 +9,8 @@
 include "patient_drawer.php";
 $title="Patient Portal";
 session_start();
-$fetchedAppoints = getPatientAppointments($_SESSION['user_id']);
+$patient_id = findPatientIdByUserId($_SESSION['user_id']);
+$fetchedAppoints = getPatientAppointments($patient_id);
 ?>
 
 
