@@ -39,28 +39,21 @@ $fetchedPatient = findPatientByUserId($_SESSION['user_id']);
         </div>
 
         <div class="mdui-card-content">
-            <form method="post" action="#" id="update_patient_form">
+            <form method="post" action="update_profile.php" id="update_patient_form">
                 <div class="mdui-textfield">
-                    <input class="mdui-textfield-input" type="text" name="fname" placeholder="Full Name"/>
-                </div>
-                <div class="mdui-textfield mdui-textfield-floating-label">
-                    <label class="mdui-textfield-label">Sex</label>
-                    <select class="mdui-textfield-input" name="sex">
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                    </select>
+                    <input class="mdui-textfield-input" type="text" name="fname" placeholder="Full Name" value="<?php echo $fetchedPatient['Name'];?>"/>
                 </div>
                 <div class="mdui-textfield">
-                    <input class="mdui-textfield-input" type="text" name="blood_group" placeholder="Blood Group"/>
+                    <input class="mdui-textfield-input" type="text" name="blood_group" placeholder="Blood Group" value="<?php echo $fetchedPatient['BloodGroup'];?>"/>
                 </div>
                 <div class="mdui-textfield">
-                    <input class="mdui-textfield-input" type="date" name="dob"  placeholder="Email"/>
+                    <input class="mdui-textfield-input" type="date" name="dob"  placeholder="Date of Birth" value="<?php echo $fetchedPatient['DateOfBirth'];?>"/>
                 </div>
                 <div class="mdui-textfield">
-                    <input class="mdui-textfield-input" type="text" name="mobile_number"  placeholder="01XXXXXXXXX"/>
+                    <input class="mdui-textfield-input" type="text" name="mobile_number"  placeholder="01XXXXXXXXX" value="<?php echo $fetchedPatient['MobileNo'];?>"/>
                 </div>
                 <div class="mdui-textfield">
-                    <input class="mdui-textfield-input" type="text" name="address"  placeholder="Address"/>
+                    <input class="mdui-textfield-input" type="text" name="address"  placeholder="Address" value="<?php echo $fetchedPatient['Address'];?>"/>
                 </div>
                 <button class="mdui-btn mdui-ripple mdui-float-right mdui-m-a-1 login-register-button" type="submit"
                         id="register_submit" name="submit">Update

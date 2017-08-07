@@ -32,7 +32,7 @@ if($_SESSION["message"] != ""){
 
             <div class="mdui-list-item-content" style="min-height: 150px;">
                 <div>
-                    <?php echo'<img class="circular--square" style="width: 100px;" src="data:image/jpeg;base64,'.base64_encode( $user['Image'] ).'" alt="Image not found" onerror="this.onerror=null;this.src=\'../images/nurse.png\';" />'?>
+                    <?php echo'<img class="circular--square" style="width: 100px;" src="data:image/jpeg;base64,'.$user['Image'].'" alt="Image not found" onerror="this.onerror=null;this.src=\'../images/nurse.png\';" />'?>
                     <br>
                     <h3 class="mdui-float-left"><?php echo $user['UserName'] ?></h3>
                 </div>

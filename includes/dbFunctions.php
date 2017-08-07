@@ -510,5 +510,42 @@ function updateUserPassword($userId, $password){
     }
 }
 
+function updatePatientInformation($patientId, $fullName, $bloodGroup, $dOB, $mobileNumber, $address){
+    global $dbConnection;
+    try{
+        $idSql = "UPDATE DiagnosticCenter.Patient SET Name = ?, BloodGroup = ?, DateOfBirth = STR_TO_DATE(?, '%d-%m-%y'), MobileNo = ?, Address = ? WHERE idPatient = ?";
+        $idPrepareStmt = $dbConnection->prepare($idSql);
+        $idPrepareStmt->bindValue(1, $fullName, PDO::PARAM_STR);
+        $idPrepareStmt->bindValue(2, $bloodGroup, PDO::PARAM_STR);
+        $idPrepareStmt->bindValue(3, $dOB, PDO::PARAM_STR);
+        $idPrepareStmt->bindValue(4, $mobileNumber, PDO::PARAM_STR);
+        $idPrepareStmt->bindValue(5, $address, PDO::PARAM_STR);
+        $idPrepareStmt->bindValue(6, $patientId, PDO::PARAM_INT);
+        $idPrepareStmt->execute();
+        return true;
+
+    }catch (Exception $exception){
+        echo "Error!: " . $exception->getMessage();
+        return null;
+    }
+}
+
+function updatePathologistInformation($pathologistId, $fullName, $department, $specialty){
+    global $dbConnection;
+    try{
+        $idSql = "UPDATE DiagnosticCenter.Pathologist SET Name = ?, Department = ?, Speciality = ? WHERE idPathologist = ?";
+        $idPrepareStmt = $dbConnection->prepare($idSql);
+        $idPrepareStmt->bindValue(1, $fullName, PDO::PARAM_STR);
+        $idPrepareStmt->bindValue(2, $department, PDO::PARAM_STR);
+        $idPrepareStmt->bindValue(3, $specialty, PDO::PARAM_STR);
+        $idPrepareStmt->bindValue(4, $pathologistId, PDO::PARAM_INT);
+        $idPrepareStmt->execute();
+        return true;
+
+    }catch (Exception $exception){
+        echo "Error!: " . $exception->getMessage();
+        return null;
+    }
+}
 
 ?>

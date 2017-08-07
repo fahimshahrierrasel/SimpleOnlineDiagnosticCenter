@@ -36,28 +36,41 @@ $fetchedPathologist = findPathologistByUserId($_SESSION['user_id']);
         </div>
 
         <div class="mdui-card-content">
-            <form method="post" action="#" id="update_patient_form">
+            <form method="post" action="update_profile.php" id="update_patient_form">
                 <div class="mdui-textfield">
-                    <input class="mdui-textfield-input" type="text" name="fname" placeholder="Full Name"/>
+                    <input class="mdui-textfield-input mdui-text-capitalize" type="text" value="<?php echo $fetchedPathologist['Name'];?>" name="fname" data-validation="custom" data-validation-regexp="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$" data-validation-error-msg="Enter your full name!" placeholder="Your Full Name" />
                 </div>
                 <div class="mdui-textfield mdui-textfield-floating-label">
-                    <label class="mdui-textfield-label">Sex</label>
-                    <select class="mdui-textfield-input" name="sex">
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
+                    <label class="mdui-textfield-label">Department (Select one)</label>
+                    <select class="mdui-textfield-input" name="department">
+                        <option value="Bio-Chemistry">Bio-Chemistry</option>
+                        <option value="Bone Densitometre">Bone Densitometre</option>
+                        <option value="Broncoscopy">Broncoscopy</option>
+                        <option value="Cardiac Test">Cardiac Test</option>
+                        <option value="Clinical Pathology">Clinical Pathology</option>
+                        <option value="Colonoscopy">Colonoscopy</option>
+                        <option value="CT Scan">CT Scan</option>
+                        <option value="Cyto-Pathology">Cyto-Pathology</option>
+                        <option value="Dermatology">Dermatology</option>
+                        <option value="Dialysis">Dialysis</option>
+                        <option value="ENT">ENT</option>
+                        <option value="Histopathology">Histopathology</option>
+                        <option value="Immunology">Immunology</option>
+                        <option value="Micro-Biology">Micro-Biology</option>
+                        <option value="MRI">MRI</option>
+                        <option value="Neurodiagnosis">Neurodiagnosis</option>
+                        <option value="Nuclear Medicine">Nuclear Medicine</option>
+                        <option value="PCR Lab">PCR Lab</option>
+                        <option value="Serology">Serology</option>
+                        <option value="Uroflowmetry">Uroflowmetry</option>
+                        <option value="USG">USG</option>
+                        <option value="Vaccination Center">Vaccination Center</option>
+                        <option value="Video Endoscopy">Video Endoscopy</option>
+                        <option value="X-Ray">X-Ray</option>
                     </select>
                 </div>
                 <div class="mdui-textfield">
-                    <input class="mdui-textfield-input" type="text" name="blood_group" placeholder="Blood Group"/>
-                </div>
-                <div class="mdui-textfield">
-                    <input class="mdui-textfield-input" type="date" name="dob"  placeholder="Email"/>
-                </div>
-                <div class="mdui-textfield">
-                    <input class="mdui-textfield-input" type="text" name="mobile_number"  placeholder="01XXXXXXXXX"/>
-                </div>
-                <div class="mdui-textfield">
-                    <input class="mdui-textfield-input" type="text" name="address"  placeholder="Address"/>
+                    <input class="mdui-textfield-input" type="text" name="speciality" value="<?php echo $fetchedPathologist['Speciality'];?>" placeholder="Speciality" />
                 </div>
                 <button class="mdui-btn mdui-ripple mdui-float-right mdui-m-a-1 login-register-button" type="submit"
                         id="register_submit" name="submit">Update
@@ -79,7 +92,7 @@ $fetchedPathologist = findPathologistByUserId($_SESSION['user_id']);
                     <div class="mdui-card-primary-title">Account Picture</div>
                 </div>
                 <div class="mdui-card-media ">
-                    <?php echo'<img class="mdui-img-rounded mdui-p-t-3" style="width: 200px; margin: 0 auto;" src="data:image/jpeg;base64,'.$fetchedUser['Image'].'" alt="Image not found" onerror="this.onerror=null;this.src=\'../images/users.png\';" />'?>
+                    <?php echo'<img class="mdui-img-rounded mdui-p-t-3" style="width: 200px; margin: 0 auto;" src="data:image/jpeg;base64,'.$fetchedUser['Image'].'" alt="Image not found" onerror="this.onerror=null;this.src=\'../images/nurse.png\';" />'?>
                 </div>
                 <div class="mdui-card-content">
                     <form method="post" action="../includes/image_upload.php" enctype="multipart/form-data" id="user_form"
@@ -150,7 +163,7 @@ $fetchedPathologist = findPathologistByUserId($_SESSION['user_id']);
                 good: 'Good',
                 strong: 'Strong'
             };
-            $('input[name="rpassword"]').displayPasswordStrength(optionalConfig);
+            $('input[name="new_password"]').displayPasswordStrength(optionalConfig);
         }
     });
 </script>
