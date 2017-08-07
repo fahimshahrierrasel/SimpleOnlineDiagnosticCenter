@@ -13,7 +13,7 @@ $user['password'] = $_POST['password'];
 $user['user_type'] = 'Admin';
 
 $fetchedUser = findUserByUsername($user);
-$loginErrorMsg = 'Log in was unsuccessful!';
+
 if($fetchedUser){
     if($user['password'] == $fetchedUser['Password']){
         if(createUserSession($fetchedUser)){

@@ -146,7 +146,7 @@ $fetchedPatient = findPatientByUserId($_SESSION['user_id']);
                 good: 'Good',
                 strong: 'Strong'
             };
-            $('input[name="rpassword"]').displayPasswordStrength(optionalConfig);
+            $('input[name="new_password"]').displayPasswordStrength(optionalConfig);
         }
     });
 </script>

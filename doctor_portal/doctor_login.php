@@ -1,6 +1,7 @@
 <?php
 include("../includes/portal_components/headless.php");
-$title = "Doctor Login"
+$title = "Doctor Login";
+session_start();
 ?>
 <script type="text/javascript">
     document.title = "<?=$title;?>"

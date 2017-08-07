@@ -5,7 +5,7 @@ session_start();
 $title = "Doctor Portal";
 
 $fetchedUser = findUserById($_SESSION['user_id']);
-$fetchedPatient = findPatientByUserId($_SESSION['user_id']);
+$fetchedDoctor = findDoctorByUserId($_SESSION['user_id']);
 ?>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
 <div style="margin-top: 20px; margin-bottom: 20px">
@@ -23,12 +23,10 @@ $fetchedPatient = findPatientByUserId($_SESSION['user_id']);
 
         <div class="mdui-card-content">
             <div class="mdui-typo">
-                <div class="mdui-typo-title-opacity">Full Name: <?php echo $fetchedPatient['Name'];?></div>
-                <div class="mdui-typo-subheading-opacity">Sex: <?php echo $fetchedPatient['Sex'];?></div>
-                <div class="mdui-typo-subheading-opacity">Blood Group: <?php echo $fetchedPatient['BloodGroup'];?></div>
-                <div class="mdui-typo-subheading-opacity">Date of Birth: <?php echo $fetchedPatient['DateOfBirth'];?></div>
-                <div class="mdui-typo-subheading-opacity">Mobile Number: <?php echo $fetchedPatient['MobileNo'];?></div>
-                <div class="mdui-typo-subheading-opacity">Address: <?php echo $fetchedPatient['Address'];?></div>
+                <div class="mdui-typo-title-opacity">Full Name: <?php echo $fetchedDoctor['Name'];?></div>
+                <div class="mdui-typo-subheading-opacity">Department: <?php echo $fetchedDoctor['Department'];?></div>
+                <div class="mdui-typo-subheading-opacity">Speciality: <?php echo $fetchedDoctor['Specialty'];?></div>
+                <div class="mdui-typo-subheading-opacity">Degree: <?php echo $fetchedDoctor['Degree'];?></div>
             </div>
         </div>
     </div>
@@ -39,28 +37,45 @@ $fetchedPatient = findPatientByUserId($_SESSION['user_id']);
         </div>
 
         <div class="mdui-card-content">
-            <form method="post" action="#" id="update_patient_form">
+            <form method="post" action="update_profile.php" id="update_patient_form">
                 <div class="mdui-textfield">
-                    <input class="mdui-textfield-input" type="text" name="fname" placeholder="Full Name"/>
+                    <input class="mdui-textfield-input mdui-text-capitalize" type="text" name="fname" value="<?php echo $fetchedDoctor['Name'];?>" data-validation="custom" data-validation-regexp="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$" data-validation-error-msg="Enter your full name!" placeholder="Your Full Name" />
                 </div>
                 <div class="mdui-textfield mdui-textfield-floating-label">
-                    <label class="mdui-textfield-label">Sex</label>
-                    <select class="mdui-textfield-input" name="sex">
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
+                    <label class="mdui-textfield-label">Department (Select one)</label>
+                    <select class="mdui-textfield-input" name="department">
+                        <option value="Pediatric and Neonatology">Pediatric and Neonatology</option>
+                        <option value="Cancer Specialist">Cancer Specialist</option>
+                        <option value="Cardiology">Cardiology</option>
+                        <option value="Dental Surgeon">Dental Surgeon</option>
+                        <option value="Dermatologist">Dermatologist</option>
+                        <option value="Diabetes, Thyroid and Hormone Specialist">Diabetes, Thyroid and Hormone Specialist</option>
+                        <option value="ENT(Ear,Nose and Throat)">ENT(Ear,Nose and Throat)</option>
+                        <option value="Family physician and medical co-ordinator">Family physician and medical co-ordinator</option>
+                        <option value="Gastroenterology">Gastroenterology</option>
+                        <option value="Gynecology and Obstetrics">Gynecology and Obstetrics</option>
+                        <option value="Interventional Cardiology">Interventional Cardiology</option>
+                        <option value="Kidney, Ureter, Bladder, Prostate and Andrology Specialist Surgeon">Kidney, Ureter, Bladder, Prostate and Andrology Specialist Surgeon</option>
+                        <option value="Laparoscopic and Colorectal Surgery">Laparoscopic and Colorectal Surgery</option>
+                        <option value="Medicine">Medicine</option>
+                        <option value="Medicine and Chest Specialist">Medicine and Chest Specialist</option>
+                        <option value="Medicine and Kindey Specialist">Medicine and Kindey Specialist</option>
+                        <option value="Medicine and Diabetologist">Medicine and Diabetologist</option>
+                        <option value="Neuromedicine">Neuromedicine</option>
+                        <option value="Neurosurgery">Neurosurgery</option>
+                        <option value="Ophthalmology">Ophthalmology</option>
+                        <option value="Orthopedic Surgeon">Orthopedic Surgeon</option>
+                        <option value="Plastic Surgery">Plastic Surgery</option>
+                        <option value="Psychiatry">Psychiatry</option>
+                        <option value="Pulmonology">Pulmonology</option>
                     </select>
                 </div>
                 <div class="mdui-textfield">
-                    <input class="mdui-textfield-input" type="text" name="blood_group" placeholder="Blood Group"/>
+                    <input class="mdui-textfield-input" type="text" name="specialty"  placeholder="Specialty" value="<?php echo $fetchedDoctor['Specialty'];?>" />
                 </div>
                 <div class="mdui-textfield">
-                    <input class="mdui-textfield-input" type="date" name="dob"  placeholder="Email"/>
-                </div>
-                <div class="mdui-textfield">
-                    <input class="mdui-textfield-input" type="text" name="mobile_number"  placeholder="01XXXXXXXXX"/>
-                </div>
-                <div class="mdui-textfield">
-                    <input class="mdui-textfield-input" type="text" name="address"  placeholder="Address"/>
+                    <label class="mdui-textfield-label">Degree</label>
+                    <textarea class="mdui-textfield-input" name="degree"><?php echo $fetchedDoctor['Degree'];?></textarea>
                 </div>
                 <button class="mdui-btn mdui-ripple mdui-float-right mdui-m-a-1 login-register-button" type="submit"
                         id="register_submit" name="submit">Update
@@ -82,7 +97,7 @@ $fetchedPatient = findPatientByUserId($_SESSION['user_id']);
                     <div class="mdui-card-primary-title">Account Picture</div>
                 </div>
                 <div class="mdui-card-media ">
-                    <?php echo'<img class="mdui-img-rounded mdui-p-t-3" style="width: 200px; margin: 0 auto;" src="data:image/jpeg;base64,'.$fetchedUser['Image'].'" alt="Image not found" onerror="this.onerror=null;this.src=\'../images/users.png\';" />'?>
+                    <?php echo'<img class="mdui-img-rounded mdui-p-t-3" style="width: 200px; margin: 0 auto;" src="data:image/jpeg;base64,'.$fetchedUser['Image'].'" alt="Image not found" onerror="this.onerror=null;this.src=\'../images/doctor.png\';" />'?>
                 </div>
                 <div class="mdui-card-content">
                     <form method="post" action="../includes/image_upload.php" enctype="multipart/form-data" id="user_form"
@@ -153,7 +168,7 @@ $fetchedPatient = findPatientByUserId($_SESSION['user_id']);
                 good: 'Good',
                 strong: 'Strong'
             };
-            $('input[name="rpassword"]').displayPasswordStrength(optionalConfig);
+            $('input[name="new_password"]').displayPasswordStrength(optionalConfig);
         }
     });
 </script>

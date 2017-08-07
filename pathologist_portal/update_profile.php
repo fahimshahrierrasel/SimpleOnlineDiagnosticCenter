@@ -17,9 +17,9 @@ $department = $_POST['department'];
 $speciality = $_POST['speciality'];
 
 if(updatePathologistInformation($pathologist['idPathologist'], $fullName, $department, $speciality)){
-    $_SESSION['message'] = "Update successfully applied".$dOB;
+    $_SESSION['message'] = "Update successfully applied";
     header("Location: /pathologist_portal/pathologist_profile.php");
 }else{
-    $_SESSION['message'] = "Update Unsuccessful".$dOB;
+    $_SESSION['message'] = "Update Unsuccessful";
     header("Location: /pathologist_portal/pathologist_profile.php");
 }

@@ -1,18 +1,20 @@
 <?php
 include("../includes/portal_components/headless.php");
-$title = "Admin Login"
-?>
-<script type="text/javascript">
-    document.title = "<?=$title;?>"
-</script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+$title = "Admin Login";
+session_start();
 
+?>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
 <?php
 if($_SESSION["message"] != ""){
     echo "<script>mdui.snackbar({message: '".$_SESSION["message"]."', timeout: 5000});</script>";
     $_SESSION["message"] = "";
 }
 ?>
+
 
 <div class="mdui-card login-card" id="login_card">
     <div class="mdui-card-header mdui-color-indigo" style="height: 100px;">
@@ -69,6 +71,8 @@ if($_SESSION["message"] != ""){
         </form>
     </div>
 
+
+
     <script type="text/javascript">
         $('#register_btn').click(function() {
             event.preventDefault();
@@ -94,5 +98,8 @@ if($_SESSION["message"] != ""){
                 $('input[name="rpassword"]').displayPasswordStrength(optionalConfig);
             }
         });
+    </script>
+    <script type="text/javascript">
+        document.title = "<?=$title;?>"
     </script>
 <?php include("../includes/portal_components/footless.php"); ?>

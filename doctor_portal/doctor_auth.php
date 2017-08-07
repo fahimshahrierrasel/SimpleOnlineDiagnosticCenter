@@ -8,7 +8,7 @@
 
 include '../includes/dbFunctions.php';
 include '../includes/auth_functions.php';
-
+session_start();
 $user['username'] = $_POST['username'];
 $user['password'] = $_POST['password'];
 $user['user_type'] = 'Doctor';

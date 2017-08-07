@@ -280,6 +280,23 @@ function findPathologistByUserId($userId){
     }
 }
 
+function findAdminByUserId($userID){
+    global $dbConnection;
+
+    try{
+        $appointTableSql = 'SELECT * FROM DiagnosticCenter.Admin WHERE User_idUser = ? LIMIT 1';
+        $appointTablePrepareStmt = $dbConnection->prepare($appointTableSql);
+        $appointTablePrepareStmt->bindValue(1, $userID, PDO::PARAM_INT);
+        $appointTablePrepareStmt->execute();
+        $fetchedDoctor = $appointTablePrepareStmt->fetchAll();
+        return $fetchedDoctor[0];
+
+    }catch (Exception $exception){
+        echo "Error!: " . $exception->getMessage();
+        return false;
+    }
+}
+
 function findDoctorByUserId($userID){
     global $dbConnection;
 
@@ -539,6 +556,26 @@ function updatePathologistInformation($pathologistId, $fullName, $department, $s
         $idPrepareStmt->bindValue(2, $department, PDO::PARAM_STR);
         $idPrepareStmt->bindValue(3, $specialty, PDO::PARAM_STR);
         $idPrepareStmt->bindValue(4, $pathologistId, PDO::PARAM_INT);
+        $idPrepareStmt->execute();
+        return true;
+
+    }catch (Exception $exception){
+        echo "Error!: " . $exception->getMessage();
+        return null;
+    }
+}
+
+
+function updateDoctorInformation($doctorId, $fullName, $department, $speciality, $degree){
+    global $dbConnection;
+    try{
+        $idSql = "UPDATE DiagnosticCenter.Doctor SET Name = ?, Department = ?, Specialty = ?, Degree = ? WHERE idDoctor = ?";
+        $idPrepareStmt = $dbConnection->prepare($idSql);
+        $idPrepareStmt->bindValue(1, $fullName, PDO::PARAM_STR);
+        $idPrepareStmt->bindValue(2, $department, PDO::PARAM_STR);
+        $idPrepareStmt->bindValue(3, $speciality, PDO::PARAM_STR);
+        $idPrepareStmt->bindValue(4, $degree, PDO::PARAM_STR);
+        $idPrepareStmt->bindValue(5, $doctorId, PDO::PARAM_INT);
         $idPrepareStmt->execute();
         return true;
 
