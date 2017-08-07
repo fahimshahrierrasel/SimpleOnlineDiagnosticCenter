@@ -24,13 +24,6 @@
         <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-menu="{target: '#example-1'}"><i class="mdui-icon material-icons">more_vert</i></a>
         <ul class="mdui-menu" id="example-1">
             <li class="mdui-menu-item">
-                <a href="javascript:;" class="mdui-ripple">Profile</a>
-            </li>
-            <li class="mdui-menu-item">
-                <a href="javascript:;" class="mdui-ripple">Settings</a>
-            </li>
-            <li class="mdui-divider"></li>
-            <li class="mdui-menu-item">
                 <a href="/includes/logout.php" class="mdui-ripple">Sign out</a>
             </li>
         </ul>
