@@ -66,7 +66,7 @@ if($_SESSION["message"] != ""){
         </li>
         <li class="mdui-list-item mdui-ripple"><i class="mdui-list-item-icon mdui-icon material-icons">error</i>
 
-            <div class="mdui-list-item-content">Spam</div>
+            <div class="mdui-list-item-content" onclick="location.href='admin_profile.php'">Profile</div>
         </li>
     </ul>
 </div>

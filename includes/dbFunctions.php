@@ -265,6 +265,21 @@ function findUserById($id){
     }
 }
 
+function findPathologistByUserId($userId){
+    global $dbConnection;
+    try{
+        $pathologistSql = 'SELECT * FROM DiagnosticCenter.Pathologist WHERE User_idUser = ? LIMIT 1';
+        $pathologistPrepareStmt = $dbConnection->prepare($pathologistSql);
+        $pathologistPrepareStmt->bindValue(1, $userId, PDO::PARAM_INT);
+        $pathologistPrepareStmt->execute();
+        $fetchedPathologist = $pathologistPrepareStmt->fetchAll();
+        return $fetchedPathologist[0];
+    }catch (Exception $exception){
+        echo "Error!: " . $exception->getMessage();
+        return null;
+    }
+}
+
 function findDoctorByUserId($userID){
     global $dbConnection;
 
