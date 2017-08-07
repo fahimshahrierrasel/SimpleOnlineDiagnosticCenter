@@ -7,6 +7,7 @@
  */
 
 include "../includes/dbFunctions.php";
+session_start();
 
 $pathologist['fname'] = $_POST['fname'];
 $pathologist['department'] = $_POST['department'];
@@ -19,13 +20,15 @@ $pathologist['user_type'] = 'Pathologist';
 if(insertNewUser($pathologist)){
     $fetchedUser = findUserByUsernameAndEmail($pathologist);
     if(insertNewPathologist($pathologist, $fetchedUser)){
+        $_SESSION["message"] = "Pathologist Registration Successful";
         header("Location: /admin_panel/pathologists.php");
-        exit();
     }else{
-        echo "<h1>Registration Failed!<br /><a href='pathologists.php'>Register Again</a> </h1>";
+        $_SESSION["message"] = "Pathologist Registration Unsuccessful";
+        header("Location: /admin_panel/pathologists.php");
     }
 }else{
-    echo "<h1>Registration Failed!<br /><a href='pathologists.php'>Register Again</a> </h1>";
+    $_SESSION["message"] = "Pathologist Registration Unsuccessful";
+    header("Location: /admin_panel/pathologists.php");
 }
 
 ?>

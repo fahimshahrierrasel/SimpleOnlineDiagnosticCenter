@@ -17,9 +17,11 @@ $idUser = $_SESSION['user_id'];
 $fetchedDoctor = findDoctorByUserId($idUser);
 if($fetchedDoctor) {
     insertDoctorSchedule($doctor, $fetchedDoctor);
+    $_SESSION["message"] = "Schedule Successfully Add";
     header("Location: /doctor_portal/schedules.php");
     exit();
 }else{
+    $_SESSION["message"] = "Something went wrong!";
     header("Location: /doctor_portal/schedules.php");
     exit();
 }

@@ -10,6 +10,7 @@ $fetchedPatient = findPatientByUserId($_SESSION['user_id']);
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
 <div style="margin-top: 20px; margin-bottom: 20px">
 
+
     <div class="mdui-row">
 
     </div>
@@ -128,9 +129,6 @@ $fetchedPatient = findPatientByUserId($_SESSION['user_id']);
         </div>
     </div>
 </div>
-
-
-
 
 <script type="text/javascript">
     $('#edit_btn').click(function(){

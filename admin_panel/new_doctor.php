@@ -7,7 +7,7 @@
  */
 
 include "../includes/dbFunctions.php";
-
+session_start();
 $doctor['fname'] = $_POST['fname'];
 $doctor['department'] = $_POST['department'];
 $doctor['specialty'] = $_POST['specialty'];
@@ -20,14 +20,15 @@ $doctor['user_type'] = 'Doctor';
 if(insertNewUser($doctor)){
     $fetchedUser = findUserByUsernameAndEmail($doctor);
     if(insertNewDoctor($doctor, $fetchedUser)){
+        $_SESSION["message"] = "Doctor Registration Successful";
         header("Location: /admin_panel/doctors.php");
-        exit();
-//        echo "<h1>Account Successfully Created!<br /><a href='doctors.php'>Login Now</a> </h1>";
     }else{
-        echo "<h1>Registration Failed!<br /><a href='doctors.php'>Register Again</a> </h1>";
+        $_SESSION["message"] = "Doctor Registration Unsuccessful";
+        header("Location: /admin_panel/doctors.php");
     }
 }else{
-    echo "<h1>Registration Failed!<br /><a href='doctors.php'>Register Again</a> </h1>";
+    $_SESSION["message"] = "Doctor Registration Unsuccessful";
+    header("Location: /admin_panel/doctors.php");
 }
 
 

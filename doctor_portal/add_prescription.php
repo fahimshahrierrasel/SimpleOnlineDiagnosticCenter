@@ -6,7 +6,7 @@
  * Time: 1:12 PM
  */
 include "../includes/dbFunctions.php";
-
+session_start();
 $patientId = $_POST['patient_id'];
 $doctorId = $_POST['doctor_id'];
 $prescribedDate = $_POST['prescribed_date'];
@@ -22,11 +22,14 @@ if(insertPrescription($prescribedDate, $symptom, $patientId, $doctorId))
             insertMedicine($medicine['Name'], $medicine['Dosage'], $medicine['Use'], $prescriptionId['idPrescription'], $patientId, $doctorId);
             sleep(1);
         }
+        $_SESSION["message"] = "Prescription Successfully Add";
         header("Location: /doctor_portal/doctor_prescriptions.php");
     }else{
-        echo "Prescription ID Not Found! And the ID is ".$prescriptionId;
+        $_SESSION["message"] = "Something went wrong";
+        header("Location: /doctor_portal/doctor_prescriptions.php");
     }
 }else{
-    echo "Prescription Not Add";
+    $_SESSION["message"] = "Prescription did not add!";
+    header("Location: /doctor_portal/doctor_prescriptions.php");
 }
 ?>

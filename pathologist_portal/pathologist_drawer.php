@@ -19,6 +19,13 @@ $tempUser['username'] = $_SESSION['username'];
 $tempUser['user_type'] = 'Pathologist';
 $user = findUserByUsername($tempUser);
 ?>
+
+<?php
+if($_SESSION["message"] != ""){
+    echo "<script>mdui.snackbar({message: '".$_SESSION["message"]."', timeout: 5000});</script>";
+    $_SESSION["message"] = "";
+}
+?>
 <div class="mdui-drawer mdui-shadow-5" id="drawer">
     <ul class="mdui-list">
         <li class="mdui-list-item">

@@ -7,7 +7,7 @@
  */
 include '../includes/dbFunctions.php';
 include '../includes/auth_functions.php';
-
+session_start();
 $user['username'] = $_POST['username'];
 $user['password'] = $_POST['password'];
 $user['user_type'] = 'Admin';
@@ -17,18 +17,19 @@ $loginErrorMsg = 'Log in was unsuccessful!';
 if($fetchedUser){
     if($user['password'] == $fetchedUser['Password']){
         if(createUserSession($fetchedUser)){
-            //echo "<script>console.log('I am Here')</script>";
+            $_SESSION["message"] = "Login Successful";
             header("Location: /admin_panel/dashboard.php");
         }else{
-            echo "Session not created";
+            $_SESSION["message"] = "Login Unsuccessful";
+            header('Location: /admin_panel/admin_login.php');
         }
     }else{
-        //header('Location: /patient_portal/patient_login.php');
-        echo "<h1>Password<br /><a href='admin_login.php'>Login Now</a> </h1>";
+        $_SESSION["message"] = "Login Unsuccessful";
+        header('Location: /admin_panel/admin_login.php');
     }
 }else{
-    //header('Location: /patient_portal/patient_login.php');
-    echo "<h1>No User<br /><a href='admin_login.php'>Login Now</a> </h1>";
+    $_SESSION["message"] = "Login Unsuccessful";
+    header('Location: /admin_panel/admin_login.php');
 }
 
 

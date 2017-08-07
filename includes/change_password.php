@@ -17,6 +17,8 @@ $fetchedUser = findUserById($userId);
 
 if($fetchedUser['Password'] == $currentPassword){
     updateUserPassword($userId, $newPassword);
+}else{
+    $_SESSION["message"] = "Password did mot matched";
 }
 
 switch ($userType){

@@ -18,14 +18,18 @@ $loginErrorMsg = 'Log in was unsuccessful!';
 if($fetchedUser){
     if($user['password'] == $fetchedUser['Password']){
         if(createUserSession($fetchedUser)){
+            $_SESSION["message"] = "Login Successful";
             header("Location: /doctor_portal/dashboard.php");
         }else{
+            $_SESSION["message"] = "Login Unsuccessful";
             header("Location: /doctor_portal/doctor_login.php");
         }
     }else{
+        $_SESSION["message"] = "Login Unsuccessful";
         header("Location: /doctor_portal/doctor_login.php");
     }
 }else{
+    $_SESSION["message"] = "Login Unsuccessful";
     header("Location: /doctor_portal/doctor_login.php");
 }
 

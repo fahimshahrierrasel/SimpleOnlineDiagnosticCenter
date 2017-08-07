@@ -13,13 +13,21 @@ $userId = $_SESSION['user_id'];
 $userType = $_SESSION['user_type'];
 
 
-$image = addslashes($_FILES['image']['tmp_name']);
-$name = addslashes($_FILES['image']['name']);
-$image = file_get_contents($image);
-$image = base64_encode($image);
+if (getimagesize($_FILES['image']['tmp_name']) != false) {
+    $image = addslashes($_FILES['image']['tmp_name']);
+    $name = addslashes($_FILES['image']['name']);
+    $image = file_get_contents($image);
+    $image = base64_encode($image);
 
 
-uploadUserProfilePic($userId, $image);
+    if (uploadUserProfilePic($userId, $image)) {
+        $_SESSION["message"] = "Picture Successfully Uploaded";
+    } else {
+        $_SESSION["message"] = "Upload Unsuccessful";
+    }
+} else {
+    $_SESSION["message"] = "Please Select an image!!";
+}
 
 switch ($userType){
     case "Patient":

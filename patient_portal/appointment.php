@@ -7,6 +7,9 @@
  */
 
 include "../includes/dbFunctions.php";
+
+session_start();
+
 $registerDay = $_POST['register_date'];
 $appointmentDay = $_POST['appointment_date'];
 $appointmentTime = $_POST['appointment_time'];
@@ -14,9 +17,11 @@ $doctor_id = $_POST['doctor_id'];
 $patient_id = $_POST['patient_id'];
 
 if(insertAppointment($registerDay, $appointmentDay, $appointmentTime, $patient_id, $doctor_id)){
+    $_SESSION["message"] = "Appointment Successfully Add";
     header("Location: /patient_portal/appointments.php");
 }else{
-    echo "<h1>Appointment Unsuccessful</h1><br/><a href='find_doctors.php'>Go to Find Doctor</a>";
+    $_SESSION["message"] = "Something went wrong!";
+    header("Location: /patient_portal/find_doctors.php");
 }
 
 ?>

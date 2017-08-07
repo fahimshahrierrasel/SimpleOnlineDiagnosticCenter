@@ -6,7 +6,7 @@
  * Time: 10:00 PM
  */
 include "../includes/dbFunctions.php";
-
+session_start();
 $user['fname'] = $_POST['fname'];
 $user['username'] = $_POST['username'];
 $user['email'] = $_POST['email'];
@@ -18,15 +18,19 @@ if(insertNewUser($user)){
     $fetchedUser = findUserByUsernameAndEmail($user);
     if ($verificationCode == "260088") {
         if (insertNewAdmin($user, $fetchedUser)) {
-            echo "<h1>Account Successfully Created!<br /><a href='admin_login.php'>Login Now</a> </h1>";
+            $_SESSION["message"] = "Registration Successful";
+            header("Location: /admin_panel/admin_login.php");
         } else {
-            echo "<h1>Registration Failed!<br /><a href='admin_login.php'>Register Again</a> </h1>";
+            $_SESSION["message"] = "Registration Unsuccessful";
+            header("Location: /admin_panel/admin_login.php");
         }
     } else {
-        echo "<h1>Verification Failed!<br /><a href='admin_login.php'>Register Again</a> </h1>";
+        $_SESSION["message"] = "Registration Unsuccessful";
+        header("Location: /admin_panel/admin_login.php");
     }
 }else{
-    echo "<h1>Registration Failed!<br /><a href='admin_login.php'>Register Again</a> </h1>";
+    $_SESSION["message"] = "Registration Unsuccessful";
+    header("Location: /admin_panel/admin_login.php");
 }
 
 ?>

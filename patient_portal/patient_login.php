@@ -1,21 +1,21 @@
 <?php
 include("../includes/portal_components/headless.php");
+session_start();
 $title = "Patient Login";
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-    $fname = trim(filter_input(INPUT_POST, 'fname', FILTER_SANITIZE_STRING));
-    $sex = trim(filter_input(INPUT_POST, 'sex', FILTER_SANITIZE_STRING));
-    $username = trim(filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING));
-    $email = trim(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL));
-    $password = trim(filter_input(INPUT_POST, 'rpassword', FILTER_SANITIZE_STRING));
-    $confirm_password = trim(filter_input(INPUT_POST, 'confirm_password', FILTER_SANITIZE_STRING));
-}
 
 ?>
 <script type="text/javascript">
     document.title = "<?=$title;?>"
 </script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+
+<?php
+if($_SESSION["message"] != ""){
+    echo "<script>mdui.snackbar({message: '".$_SESSION["message"]."', timeout: 5000});</script>";
+    $_SESSION["message"] = "";
+}
+?>
+
 
 <div class="mdui-card login-card" id="login_card">
     <div class="mdui-card-header mdui-color-indigo" style="height: 100px;">
@@ -75,6 +75,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             <button class="mdui-btn mdui-ripple mdui-float-right login-register-button" type="submit" id="register_submit" name="submit">Register</button>
         </form>
 </div>
+
+
 
 <script type="text/javascript">
     $('#register_btn').click(function() {
