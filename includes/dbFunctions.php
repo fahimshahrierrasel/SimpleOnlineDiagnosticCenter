@@ -331,6 +331,22 @@ function findDoctorByDoctorId($doctorId){
     }
 }
 
+
+function getAllPatients(){
+    global $dbConnection;
+    try{
+        $doctorSql = 'SELECT * FROM DiagnosticCenter.Patient';
+        $doctorPrepareStmt = $dbConnection->prepare($doctorSql);
+        $doctorPrepareStmt->execute();
+        $fetchedDoctor = $doctorPrepareStmt->fetchAll();
+        return $fetchedDoctor;
+
+    }catch (Exception $exception){
+        echo "Error!: " . $exception->getMessage();
+        return null;
+    }
+}
+
 function getAllDoctors(){
     global $dbConnection;
     try{

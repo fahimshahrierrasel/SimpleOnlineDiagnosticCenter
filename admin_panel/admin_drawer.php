@@ -39,9 +39,9 @@ if($_SESSION["message"] != ""){
                 </div>
             </div>
         </li>
-        <li class="mdui-list-item mdui-ripple"><i class="mdui-list-item-icon mdui-icon material-icons">move_to_inbox</i>
+        <li class="mdui-list-item mdui-ripple"><i class="mdui-list-item-icon mdui-icon material-icons">home</i>
 
-            <div class="mdui-list-item-content">Inbox</div>
+            <div class="mdui-list-item-content" onclick="window.location.href='dashboard.php'">Dashboard</div>
         </li>
         <li class="mdui-list-item mdui-ripple"><i class="mdui-list-item-icon mdui-icon material-icons">star</i>
 
@@ -53,17 +53,9 @@ if($_SESSION["message"] != ""){
         </li>
         <li class="mdui-list-item mdui-ripple"><i class="mdui-list-item-icon mdui-icon material-icons">drafts</i>
 
-            <div class="mdui-list-item-content">Drafts</div>
+            <div class="mdui-list-item-content" onclick="window.location.href='patients.php'">All Patients</div>
         </li>
         <li class="mdui-subheader">Subheader</li>
-        <li class="mdui-list-item mdui-ripple"><i class="mdui-list-item-icon mdui-icon material-icons">email</i>
-
-            <div class="mdui-list-item-content">All mail</div>
-        </li>
-        <li class="mdui-list-item mdui-ripple"><i class="mdui-list-item-icon mdui-icon material-icons">delete</i>
-
-            <div class="mdui-list-item-content">Trash</div>
-        </li>
         <li class="mdui-list-item mdui-ripple"><i class="mdui-list-item-icon mdui-icon material-icons">error</i>
 
             <div class="mdui-list-item-content" onclick="location.href='admin_profile.php'">Profile</div>

@@ -39,6 +39,9 @@ if($_SESSION["message"] != ""){
                 </div>
             </div>
         </li>
+        <li class="mdui-list-item mdui-ripple"><i class="mdui-list-item-icon mdui-icon material-icons">home</i>
+            <div class="mdui-list-item-content" onclick="location.href='dashboard.php'">Dashboard</div>
+        </li>
         <li class="mdui-list-item mdui-ripple"><i class="mdui-list-item-icon mdui-icon material-icons">move_to_inbox</i>
             <div class="mdui-list-item-content" onclick="location.href='schedules.php'">My Schedules</div>
         </li>
@@ -55,14 +58,6 @@ if($_SESSION["message"] != ""){
             <div class="mdui-list-item-content" onclick="location.href='all_prescriptions.php'">All Prescriptions</div>
         </li>
         <li class="mdui-subheader">Subheader</li>
-        <li class="mdui-list-item mdui-ripple"><i class="mdui-list-item-icon mdui-icon material-icons">email</i>
-
-            <div class="mdui-list-item-content">All mail</div>
-        </li>
-        <li class="mdui-list-item mdui-ripple"><i class="mdui-list-item-icon mdui-icon material-icons">delete</i>
-
-            <div class="mdui-list-item-content">Trash</div>
-        </li>
         <li class="mdui-list-item mdui-ripple"><i class="mdui-list-item-icon mdui-icon material-icons">error</i>
 
             <div class="mdui-list-item-content" onclick="location.href='doctor_profile.php'">Profile</div>
