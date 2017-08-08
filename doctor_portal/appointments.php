@@ -19,6 +19,8 @@ $fetchedAppointment = getDoctorAppointments($fetchedDoctor['idDoctor']);
 
 
 <div class="mdui-container" style="padding: 10px">
+    <button class="mdui-btn mdui-ripple mdui-btn-raised mdui-color-theme-accent mdui-text-capitalize mdui-float-right mdui-color-red" mdui-dialog="{target: '#removeSchedule'}">Cancel Appointment</button>
+
     <div class="mdui-typo-headline mdui-text-center mdui-m-a-2">Appointment Schedules</div>
     <table class="mdui-table mdui-table-hoverable">
         <thead>
@@ -44,6 +46,26 @@ $fetchedAppointment = getDoctorAppointments($fetchedDoctor['idDoctor']);
     </table>
 </div>
 
+
+<div class="mdui-dialog mdui-color-yellow-100" id="removeSchedule">
+
+    <div class="mdui-dialog-title">Cancel Appointment</div>
+    <div class="mdui-dialog-content">
+        <form method="post" action="../patient_portal/remove_appointment.php" id="register_form">
+            <div class="mdui-textfield">
+                <label class="mdui-textfield-label">Select Appointment</label>
+                <select class="mdui-textfield-input" name="appointment_id">
+                    <?php
+                    foreach ($fetchedAppointment as $appointment){
+                        echo "<option value=\"".$appointment['idAppointment']."\">".$appointment['Name']."(".$appointment['AppointmentDate']."-->".$appointment['AppointmentTime'].")</option>";
+                    }
+                    ?>
+                </select>
+            </div>
+            <button class="mdui-btn mdui-ripple mdui-color-green mdui-float-right login-register-button" type="submit" id="register_submit" name="submit">Remove</button>
+        </form>
+    </div>
+</div>
 
 <script type="text/javascript">
     document.title = "<?=$title;?>";

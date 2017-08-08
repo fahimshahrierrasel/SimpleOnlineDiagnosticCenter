@@ -62,7 +62,7 @@ $appointments = getDoctorAppointments($doctor['idDoctor']);
 
 
 <div class="mdui-dialog mdui-color-yellow-100" id="removeSchedule">
-    <div class="mdui-dialog-title">Remove Schedule</div>
+    <div class="mdui-dialog-title">Add Medicine</div>
     <div class="mdui-dialog-content">
         <form method="post" action="#" id="register_form">
             <div class="mdui-textfield mdui-textfield-floating-label">

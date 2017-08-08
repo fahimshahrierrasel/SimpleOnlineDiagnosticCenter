@@ -412,7 +412,7 @@ function getAllPathologist(){
 function getPatientAppointments($patientId){
     global $dbConnection;
     try{
-        $appointmentSql = 'Select Doctor.Name, Appointment.RegistrationDate, Appointment.AppointmentDate, Appointment.AppointmentTime
+        $appointmentSql = 'Select Appointment.idAppointment, Doctor.Name, Appointment.RegistrationDate, Appointment.AppointmentDate, Appointment.AppointmentTime
                           from DiagnosticCenter.Doctor, DiagnosticCenter.Appointment
                           Where Appointment.Doctor_idDoctor = Doctor.idDoctor and Appointment.Patient_idPatient = ?';
         $appointmentPrepareStmt = $dbConnection->prepare($appointmentSql);
@@ -430,7 +430,7 @@ function getPatientAppointments($patientId){
 function getDoctorAppointments($doctorId){
     global $dbConnection;
     try{
-        $appointmentSql = 'Select Patient.Name, Patient.idPatient, Appointment.RegistrationDate, Appointment.AppointmentDate, Appointment.AppointmentTime
+        $appointmentSql = 'Select Appointment.idAppointment, Patient.Name, Patient.idPatient, Appointment.RegistrationDate, Appointment.AppointmentDate, Appointment.AppointmentTime
                           from DiagnosticCenter.Patient, DiagnosticCenter.Appointment
                           Where Appointment.Patient_idPatient = Patient.idPatient and Appointment.Doctor_idDoctor = ?';
         $appointmentPrepareStmt = $dbConnection->prepare($appointmentSql);
@@ -592,6 +592,21 @@ function updateDoctorInformation($doctorId, $fullName, $department, $speciality,
         $idPrepareStmt->bindValue(3, $speciality, PDO::PARAM_STR);
         $idPrepareStmt->bindValue(4, $degree, PDO::PARAM_STR);
         $idPrepareStmt->bindValue(5, $doctorId, PDO::PARAM_INT);
+        $idPrepareStmt->execute();
+        return true;
+
+    }catch (Exception $exception){
+        echo "Error!: " . $exception->getMessage();
+        return null;
+    }
+}
+
+function removerAppointment($appointmentId){
+    global $dbConnection;
+    try{
+        $idSql = "DELETE FROM DiagnosticCenter.Appointment WHERE idAppointment = ?";
+        $idPrepareStmt = $dbConnection->prepare($idSql);
+        $idPrepareStmt->bindValue(1, $appointmentId, PDO::PARAM_INT);
         $idPrepareStmt->execute();
         return true;
 
