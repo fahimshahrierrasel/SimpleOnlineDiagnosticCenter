@@ -10,7 +10,7 @@
 /*}*/
 
 .header-part{
-    background-image: url("http://millstonemedicalonline.com/wp-content/uploads/2010/06/Doctors2.jpg");
+    background-image: url("../images/index_header.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top;
@@ -38,21 +38,21 @@
 }
 
 .appointment-div{
-    background-image: url("http://www.aberfoyle-buchlyviesurgeries.co.uk/website/V25629/files/appointment_1.jpg");
+    background-image: url("../images/appointment.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top;
     height: 300px;
 }
 .test-div{
-    background-image: url("http://www.penrhynbayanddeganwysurgeries.co.uk/website/W94018/files/test_vials2.jpg");
+    background-image: url("../images/test.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top;
     height: 300px;
 }
 .reports-div{
-    background-image: url("http://2.citynews-triesteprima.stgy.ovh/~media/original-hi/48873656636915/referto-medico-2.jpg");
+    background-image: url("../images/report.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top;

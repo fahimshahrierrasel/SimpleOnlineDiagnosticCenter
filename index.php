@@ -43,7 +43,12 @@
 
     </div>
     <div class="mdui-col-xs-6">
-
+        <div class="mdui-typo-display-2-opacity mdui-p-a-1">
+            Test report always<br/>available online
+        </div>
+        <div class="mdui-typo-body-2 mdui-p-a-1">
+            On Online Diagnostic Center all your medical information on your hand 24 * 7.
+        </div>
     </div>
 </div>
 
@@ -52,14 +57,14 @@
         <i class="mdui-icon material-icons mdui-typo-display-4 mdui-p-a-2">accessibility</i>
         <div class="mdui-typo-headline mdui-p-a-2">Get Freedom</div>
         <div class="mdui-typo-body-1 mdui-p-a-1">
-            All your financial information in Google Wallet is encrypted and stored on Google’s protected servers in secure locations. If needed, you can quickly remove access to your account on any device at
+            All your medical information in Online Diagnostic Center is encrypted and stored on Our’s protected servers in secure locations. If needed, you can quickly remove access to your account on any device at
         </div>
     </div>
     <div class="mdui-col-xs-6 mdui-text-center mdui-p-a-5 mdui-card">
         <i class="mdui-icon material-icons mdui-typo-display-4 mdui-p-a-2">favorite</i>
         <div class="mdui-typo-headline mdui-p-a-2">Have Everything</div>
         <div class="mdui-typo-body-1 mdui-p-a-1">
-            All your financial information in Google Wallet is encrypted and stored on Google’s protected servers in secure locations. If needed, you can quickly remove access to your account on any device at
+            All your financial information in Online Diagnostic Center is encrypted and stored on Our’s protected servers in secure locations. If needed, you can quickly remove access to your account on any device at
         </div>
     </div>
 </div>
