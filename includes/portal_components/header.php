@@ -9,11 +9,14 @@
 
     <title>User Portal</title>
 
-    <link rel="stylesheet" href="../../libaries/mdui/css/mdui.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/mdui/0.2.1/css/mdui.min.css">
 
     <link rel="stylesheet" href="../../styles/dashboard_styles.css">
-    <script src="../../libaries/mdui/js/mdui.js"></script>
-    <script src="../../libaries/jquery-3.2.1.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/mdui/0.2.1/js/mdui.min.js"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.js"
+            integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+            crossorigin="anonymous"></script>
 </head>
 <body class="mdui-appbar-with-toolbar mdui-drawer-body-left">
 <div class="mdui-appbar mdui-appbar-fixed">

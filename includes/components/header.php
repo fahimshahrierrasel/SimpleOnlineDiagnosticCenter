@@ -5,10 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Online Diagnostic Center</title>
-    <link rel="stylesheet" href="../../libaries/mdui/css/mdui.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/mdui/0.2.1/css/mdui.min.css">
     <link rel="stylesheet" href="../../styles/main_style.css">
-    <script src="../../libaries/mdui/js/mdui.js"></script>
-    <script src="../../libaries/jquery-3.2.1.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/mdui/0.2.1/js/mdui.min.js"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.js"
+            integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+            crossorigin="anonymous"></script>
 
 </head>
 <body class="mdui-drawer-body-left" style="width: 100%">
